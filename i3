@@ -1,1 +1,0 @@
-/home/booker/.i3/
