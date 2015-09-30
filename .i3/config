@@ -6,11 +6,11 @@ set $mod Mod4
 font pango: System San Francisco Display 9
 
 # thin borders
-for_window [class="^.*" ] border 1pixel
+#for_window [class="^.*" ] border 1pixel
 
 # gaps
-gaps inner 7
-gaps outer 8
+#gaps inner 7
+#gaps outer 8
 
 bindsym $mod+y gaps inner current minus 6
 bindsym $mod+u gaps inner current plus 6
@@ -103,7 +103,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # lock
-# bindsym $mod+Ctrl+l exec lock
+bindsym $mod+Ctrl+l exec sh .lock.sh
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -124,7 +124,7 @@ mode "resize" {
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
-        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Lefj resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
@@ -138,7 +138,7 @@ bindsym $mod+r mode "resize"
 # startup
 exec --no-startup-id feh --bg-scale /home/booker/Pictures/yosemite-4.jpg
 # exec --no-startup-id xrandr --output DVI-I-3 --primary --right-of DVI-I-2
-exec --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+# exec --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
 
 # colors
 client.focused          #747C84 #ffffff #747C84 #ffffff
