@@ -1,21 +1,9 @@
-
 # mod
 set $mod Mod4
-
-# font
-font pango: System San Francisco Display 9
-
 # thin borders
-#for_window [class="^.*" ] border 1pixel
-
-# gaps
-#gaps inner 7
-#gaps outer 8
-
-bindsym $mod+y gaps inner current minus 6
-bindsym $mod+u gaps inner current plus 6
-bindsym $mod+Shift+y gaps outer current minus 6
-bindsym $mod+Shift+u gaps outer current plus 6
+hide_edge_borders both
+# font
+font pango: System San Francisco Display 10
 
 # drag Windows
 floating_modifier $mod
@@ -32,7 +20,8 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod
 # bindsym $mod+d exec dmenu_run -p "> " -nb "#2C2C2C" -sb "#2C2C2C"
-bindsym $mod+d exec rofi -show run -font "System San Francisco Display 12"
+bindsym $mod+d exec rofi -show run -font "System San Francisco Display 10" -fg "#f3f4f5" -bg "#282e31" -hlfg "#f3f4f5" -hlbg "#2f343f" -bc "#747C84" -sep "|" -bg-active="#0000ff" -sidebar-mode
+bindsym $mod+q exec rofi -show window -font "System San Francisco Display 10" -fg "#f3f4f5" -bg "#282e31" -hlfg "#f3f4f5" -hlbg "#2f343f" -bc "#747C84" -sep "|" -bg-active="#0000ff" -sidebar-mode -bgalt "#282e31" -bgcolor "#00ff00" -hlbg-active "#2f343f" -hlbg-urgent="#0000ff"
 
 # change focus
 bindsym $mod+h focus left
@@ -82,16 +71,16 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace I
+bindsym $mod+Shift+2 move container to workspace II
+bindsym $mod+Shift+3 move container to workspace III
+bindsym $mod+Shift+4 move container to workspace IV
+bindsym $mod+Shift+5 move container to workspace V
+bindsym $mod+Shift+6 move container to workspace VI
+bindsym $mod+Shift+7 move container to workspace VII
+bindsym $mod+Shift+8 move container to workspace VIII
+bindsym $mod+Shift+9 move container to workspace IX
+bindsym $mod+Shift+0 move container to workspace X
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -106,16 +95,16 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Ctrl+l exec sh .lock.sh
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace I
+bindsym $mod+2 workspace II
+bindsym $mod+3 workspace III
+bindsym $mod+4 workspace IV
+bindsym $mod+5 workspace V
+bindsym $mod+6 workspace VI
+bindsym $mod+7 workspace VII
+bindsym $mod+8 workspace VIII
+bindsym $mod+9 workspace IX
+bindsym $mod+0 workspace X
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -141,22 +130,25 @@ exec --no-startup-id feh --bg-scale /home/booker/Pictures/yosemite-4.jpg
 # exec --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
 
 # colors
-client.focused          #747C84 #ffffff #747C84 #ffffff
-client.unfocused        #747C84 #747C84 #F3F4F5 #747C84
-client.focused_inactive #747C84 #747C84 #F3F4F5 #747C84
-client.urgent           #747C84 #747C84 #F3F4F5 #747C84
+#                       border  background text    indicator
+client.focused          #2f343f #2f343f    #f3f4f5 #ff0000
+client.unfocused        #4A5160 #4A5160    #676E7D #ff0000
+client.focused_inactive #4A5160 #4A5160    #676E7D #ff0000
+client.urgent           #4A5160 #4A5160    #676E7D #ff0000
 
 # bar
 bar {
     position top
     status_command i3blocks -c /home/booker/.i3/i3blocks.conf
+    font pango: System San Francisco Display 10
     colors {
-	    statusline #F3F4F5
 	    background #282e31
-            focused_workspace  #383B4A #747C84 #F3F4F5
-	    active_workspace   #747C84 #383B4A #F3F4F5
-	    inactive_workspace #383B4A #383B4A #F3F4F5
-	    urgent_workspace   #747C84 #747C84 #F3F4F5
+      separator #757575
+      #                  border  background text
+      focused_workspace  #2f343f #2f343f    #f3f4f5
+	    active_workspace   #747C84 #282e31    #676E7D
+ 	    inactive_workspace #282e31 #282e31    #676E7D
+	    urgent_workspace   #282e31 #282e31    #676E7D
     }
 }
 
