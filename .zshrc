@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/booker/.oh-my-zsh
 
+if [ "$TMUX" = "" ]; then tmux; fi
+
 alias cat='colorize' 
 
 # Set name of the theme to load.
