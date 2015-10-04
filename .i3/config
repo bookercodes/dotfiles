@@ -135,24 +135,23 @@ bar {
     font pango: System San Francisco Display 10
     status_command i3blocks -c /home/booker/.i3/i3blocks.conf
     colors {
-	background #282e31
-        separator #757575
-      	#                  border  background text
-      	focused_workspace  #2f343f #2f343f    #f3f4f5
+	    background #282e31
+      separator #757575
+     	#                  border  background text
+     	focused_workspace  #2f343f #2f343f    #f3f4f5
 	    active_workspace   #747C84 #282e31    #676E7D
  	    inactive_workspace #282e31 #282e31    #676E7D
 	    urgent_workspace   #282e31 #282e31    #676E7D
     }
     position bottom
-    tray_padding 10
 }
 
 # startup
 exec_always --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
 exec_always --no-startup-id feh --bg-scale /home/booker/.wallpaper.jpg
 
-exec --no-startup-id skype
 exec --no-startup-id qtox
+exec --no-startup-id spotify
 
 # sticky window
 bindsym $mod+Shift+s sticky toggle
@@ -174,5 +173,3 @@ workspace $workspace5 output DVI-I-2
 workspace $workspace6 output DVI-I-2
 workspace $workspace9 output DVI-I-2
 workspace $workspace10 output DVI-I-2
-
-workspace_auto_back_and_forth yes
