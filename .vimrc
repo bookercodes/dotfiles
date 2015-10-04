@@ -36,7 +36,6 @@ color wombat256mod
 
 " Showing line numbers and length
 set number  " show line numbers
-set relativenumber  " show line numbers
 set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
@@ -78,6 +77,7 @@ NeoBundle 'Lokaltog/vim-powerline.git'
 NeoBundle 'kien/ctrlp.vim.git'
 NeoBundle 'nvie/vim-flake8.git'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
@@ -102,3 +102,4 @@ nnoremap <leader>cc :VimShellPop<cr>
 nnoremap <leader>c :VimShell<cr>
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
+map <C-n> :NERDTreeToggle<CR>
