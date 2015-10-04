@@ -1,14 +1,14 @@
 # variables
-set $workspace1 1 
-set $workspace2 2 
-set $workspace3 3 
-set $workspace4 4
-set $workspace5 5
-set $workspace6 6
-set $workspace7 7
-set $workspace8 8
-set $workspace9 9 
-set $workspace10 10 
+set $workspace1 "1 "
+set $workspace2 "2 "
+set $workspace3 "3 "
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9 "
+set $workspace10 "10 "
 
 # mod
 set $mod Mod4
@@ -148,16 +148,28 @@ bar {
 
 # startup
 exec_always --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
-
 exec_always --no-startup-id feh --bg-scale /home/booker/.wallpaper.jpg
+
+exec --no-startup-id skype
+exec --no-startup-id qtox
 
 # sticky window
 bindsym $mod+Shift+s sticky toggle
 
 for_window [class="qTox"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Skype"] floating enable
 
 # default workspaces
 assign [class="Spotify"] $workspace10
 assign [class="Skype"] $workspace9
+assign [class="qTox"] $workspace9
 
+workspace $workspace1 output DVI-I-2
+workspace $workspace2 output DVI-I-2
+workspace $workspace3 output DVI-I-2
+workspace $workspace4 output DVI-I-2
+workspace $workspace5 output DVI-I-2
+workspace $workspace6 output DVI-I-2
+workspace $workspace9 output DVI-I-2
+workspace $workspace10 output DVI-I-2
