@@ -132,6 +132,7 @@ client.urgent           #4A5160 #4A5160    #676E7D #ff0000
 # bar
 bar {
     position top
+    font pango: System San Francisco Display 10
     status_command i3blocks -c /home/booker/.i3/i3blocks.conf
     colors {
 	background #282e31
@@ -146,12 +147,16 @@ bar {
 }
 
 # startup
-exec --no-startup-id feh --bg-scale /home/booker/.wallpaper.jpg
-exec --no-startup-id xrandr --output DVI-I-1 --mode 1920x1080 --pos 1928x0 --rotate normal --output HDMI-1 --off --output DVI-I-2 --mode 1920x1080 --pos 0x0 --rotate normal
+exec_always --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+
+exec_always --no-startup-id feh --bg-scale /home/booker/.wallpaper.jpg
 
 # sticky window
 bindsym $mod+Shift+s sticky toggle
 
+for_window [class="qTox"] floating enable
+
 # default workspaces
 assign [class="Spotify"] $workspace10
+assign [class="Skype"] $workspace9
 
