@@ -144,6 +144,7 @@ bar {
 	    urgent_workspace   #282e31 #282e31    #676E7D
     }
     position bottom
+    tray_padding 10
 }
 
 # startup
@@ -173,3 +174,5 @@ workspace $workspace5 output DVI-I-2
 workspace $workspace6 output DVI-I-2
 workspace $workspace9 output DVI-I-2
 workspace $workspace10 output DVI-I-2
+
+workspace_auto_back_and_forth yes

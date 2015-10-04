@@ -51,7 +51,7 @@ ZSH_TMUX_AUTOQUIT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm colorize ssh-agent tmux)
+plugins=(git nvm colorize ssh-agent tmux history jump)
 
 # User configuration
 
@@ -76,13 +76,30 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 alias cat='colorize' 
+
+alias npmg="npm i -g "
+alias npmS="npm i -S "
+alias npmD="npm i -D "
+
+alias j="jump"
+
+alias shutdown='sudo shutdown now'
+alias restart='sudo restart now'
+
+alias l='ls -lFh'
+alias la='ls -lAFh'
+alias lr='ls -tRFh'
+alias lt='ls -ltFh'
+alias ll='ls -l'
+alias ldot='ls -ld .*'
+alias lS='ls -1FSsh'
+alias lart='ls -1Fcart'
+alias lrt='ls -1Fcrt'
+
+alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
+
