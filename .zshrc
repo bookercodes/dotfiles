@@ -1,15 +1,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/booker/.oh-my-zsh
 
-# if [ "$TMUX" = "" ]; then tmux; fi
-
-alias cat='colorize' 
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOQUIT="true"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,7 +51,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize)
+plugins=(git nvm colorize tmux ssh-agent)
 
 # User configuration
 
@@ -87,5 +85,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="/home/booker/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# if [ "$TMUX" = "" ]; then tmux; fi
+
+alias cat='colorize' 
