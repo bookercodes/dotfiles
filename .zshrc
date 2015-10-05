@@ -4,7 +4,7 @@ export ZSH=/home/booker/.oh-my-zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+export TERM="xterm-256color"
 ZSH_THEME="agnoster"
 ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOQUIT="true"
@@ -101,5 +101,6 @@ alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 
-alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
+alias zshrc='vim ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
 
