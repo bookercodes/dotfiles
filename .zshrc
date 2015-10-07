@@ -51,7 +51,7 @@ ZSH_TMUX_AUTOQUIT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm colorize ssh-agent tmux history jump)
+plugins=(git nvm colorize ssh-agent tmux history jump extract)
 
 # User configuration
 
@@ -104,3 +104,6 @@ alias lrt='ls -1Fcrt'
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-oceanicnext.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

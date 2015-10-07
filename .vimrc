@@ -20,13 +20,13 @@ vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>  
 
 set relativenumber
-set tw=79   " width of document (used by gd)
-set nowrap  " don't automatically wrap on load
-set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
-highlight ColorColumn ctermbg=233"
-
-nnoremap <C-n> :call NumberToggle()<cr>
+" set tw=79   " width of document (used by gd)
+" set nowrap  " don't automatically wrap on load
+" set fo-=t   " don't automatically wrap text when typing
+" set colorcolumn=80
+" set formatoptions+=t
+" highlight ColorColumn ctermbg=233"
+set noswapfile
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -56,11 +56,6 @@ set smartcase
 set cursorline
 set history=700
 set undolevels=700
-set t_Co=256
-syntax on
-set background=dark
-colorscheme distinguished
-
 
  " Note: Skip initialization for vim-tiny or vim-small.
  if 0 | endif
@@ -88,14 +83,15 @@ colorscheme distinguished
  NeoBundle 'Xuyuanp/nerdtree-git-plugin.git'
  NeoBundle 'jelera/vim-javascript-syntax'
  NeoBundle 'pangloss/vim-javascript'
+ NeoBundle 'mxw/vim-jsx'
  NeoBundle 'Raimondi/delimitMate'
  NeoBundle 'scrooloose/syntastic'
  NeoBundle 'marijnh/tern_for_vim'
  NeoBundle 'Valloric/YouCompleteMe'
  NeoBundle 'tpope/vim-surround'
- NeoBundle 'SirVer/ultisnips'
  NeoBundle 'bling/vim-airline' 
  NeoBundle 'kien/ctrlp.vim' 
+ NeoBundle 'chriskempson/base16-vim'
  call neobundle#end()
 
  " Required:
@@ -106,9 +102,7 @@ colorscheme distinguished
  NeoBundleCheck
 
 nnoremap <Leader>f :NERDTreeToggle<Enter>
-autocmd vimenter * NERDTree
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
-" nnoremap <Leader>f :NERDTreeToggle<Enter>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
@@ -118,11 +112,11 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let base16colorspace=256 " Access colors present in 256 colorspace"
+set t_Co=256 " 256 color mode"
+set background=dark
+colorscheme base16-oceanicnext
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme="tomorrow"
+let g:jsx_ext_required = 0
+set laststatus=2
