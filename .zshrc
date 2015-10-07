@@ -103,6 +103,7 @@ alias lrt='ls -1Fcrt'
 
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
+alias tmuxconf='vim ~/.tmux.conf'
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-oceanicnext.dark.sh"
