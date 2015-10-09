@@ -1,14 +1,3 @@
-
-set $workspace2 "2 "
-set $workspace3 "3 "
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9 "
-set $workspace10 "10 "
-
 # mod
 set $mod Mod4
 
@@ -18,20 +7,8 @@ font pango: System San Francisco Display 10
 # thin borders
 hide_edge_borders both
 
-# drag Windows
+# drag windows
 floating_modifier $mod
-
-# start terminal
-bindsym $mod+Return exec xfce4-terminal
-
-# start Firefox
-bindsym $mod+Shift+f exec firefox
-
-# kill window
-bindsym $mod+Shift+q kill
-
-# start dmenu
-bindsym $mod+d exec dmenu_run -p "> " -nb "#2C2C2C" -sb "#2C2C2C"
 
 # change focus
 bindsym $mod+h focus left
@@ -68,6 +45,17 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+set $workspace1 "1 "
+set $workspace2 "2 "
+set $workspace3 "3 "
+set $workspace4 "4 "
+set $workspace5 "5 "
+set $workspace6 "6 "
+set $workspace7 "7 "
+set $workspace8 "8 "
+set $workspace9 "9 "
+set $workspace10 "10 "
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -80,16 +68,6 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace
-bindsym $mod+Shift+r restart
-
-# exit i3
-bindsym $mod+Shift+e exec /home/booker/.i3/scripts/exit_menu
-
-
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -101,6 +79,16 @@ bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# exit i3
+bindsym $mod+Shift+e exec /home/booker/.i3/scripts/exit_menu
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -121,28 +109,29 @@ mode "resize" {
 # resize mode
 bindsym $mod+r mode "resize"
 
+
+set $bg-color #2f343f
+set $inactive-bg-color #2f343f
+set $text-color #f3f4f5
+set $inactive-text-color #676E7D
+
 # window colors
-#                       border  background text    indicator
-client.focused          #2f343f #2f343f    #f3f4f5 #ff0000
-client.unfocused        #4A5160 #4A5160    #676E7D #ff0000
-client.focused_inactive #4A5160 #4A5160    #676E7D #ff0000
-client.urgent           #4A5160 #4A5160    #676E7D #ff0000
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #ff0000
+client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color #ff0000
 
 # bar
 bar {
-    position top
-    font pango: System San Francisco Display 10
-    status_command i3blocks -c /home/booker/.i3/i3blocks.conf
-    colors {
-	    background #282e31
-      separator #757575
-     	#                  border  background text
-     	focused_workspace  #2f343f #2f343f    #f3f4f5
-	    active_workspace   #747C84 #282e31    #676E7D
- 	    inactive_workspace #282e31 #282e31    #676E7D
-	    urgent_workspace   #282e31 #282e31    #676E7D
-    }
-    position bottom
+  font pango: System San Francisco Display 10
+  status_command i3blocks -c /home/booker/.i3/i3blocks.conf
+  colors {
+	  background $bg-color
+    separator #757575
+    #                  border             background text
+    focused_workspace  $bg-color          $bg-color          $text-color
+ 	  inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+	  urgent_workspace   $inactive-bg-color $inactive-bg-color $inactive-text-color
+  }
 }
 
 # startup
@@ -181,3 +170,12 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+# start FF
+bindsym $mod+Shift+f exec firefox
+# start terminal
+bindsym $mod+Return exec terminator
+# kill window
+bindsym $mod+Shift+q kill
+
+# start dmenu
+bindsym $mod+d exec dmenu_run -p "> " -nb "#2C2C2C" -sb "#2C2C2C"
