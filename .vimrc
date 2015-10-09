@@ -7,6 +7,10 @@ autocmd! bufwritepost .vimrc source %
 set pastetoggle=<F2> 
 set clipboard=unnamed
 
+noremap <C-n> :nohl<CR>
+vnoremap <C-n> :nohl<CR>
+inoremap <C-n> :nohl<CR>
+
 let mapleader = ";"
 
 " easier moving of code blocks
@@ -15,15 +19,11 @@ let mapleader = ";"
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
-noremap <C-n> :nohl<CR>
-vnoremap <C-n> :nohl<CR>
-inoremap <C-n> :nohl<CR>  
-
 set relativenumber
-" set tw=79   " width of document (used by gd)
+set tw=79   " width of document (used by gd)
 " set nowrap  " don't automatically wrap on load
 " set fo-=t   " don't automatically wrap text when typing
-" set colorcolumn=80
+set colorcolumn=80
 " set formatoptions+=t
 " highlight ColorColumn ctermbg=233"
 set noswapfile
@@ -92,6 +92,8 @@ set undolevels=700
  NeoBundle 'bling/vim-airline' 
  NeoBundle 'kien/ctrlp.vim' 
  NeoBundle 'chriskempson/base16-vim'
+ NeoBundle 'godlygeek/tabular'
+ NeoBundle 'plasticboy/vim-markdown'
  call neobundle#end()
 
  " Required:
@@ -120,3 +122,7 @@ colorscheme base16-oceanicnext
 let g:airline_theme="tomorrow"
 let g:jsx_ext_required = 0
 set laststatus=2
+
+autocmd BufRead,BufNewFile *.md setlocal spell
+set complete+=kspell
+" let g:vim_markdown_folding_disabled=1

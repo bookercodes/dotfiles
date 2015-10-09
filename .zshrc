@@ -101,6 +101,8 @@ alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 
+alias vi='vim'
+
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias tmuxconf='vim ~/.tmux.conf'
