@@ -1,70 +1,46 @@
-#!/bin/bash
-# Copyright (C) 2014 Julien Bonjean <julien@bonjean.info>
-# Copyright (C) 2014 Alexander Keller <github@nycroth.com>
+#!/usr/bin/env perl 
 
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+## The sink we are interested in should be given as the 
+## 1st argument to the script.
+my $sink=$ARGV[0] || die("Need a sink number as the first argument\n");
 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+## If the script has been run with a second argument,
+## that argument will be the volume threshold we are checking
+my $volume_limit=$ARGV[1]||undef;
 
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+## Run the pactl command and save the output in 
+## ther filehandle $fh
+open(my $fh, '-|', 'pactl list sinks');
 
-#------------------------------------------------------------------------
+## Set the record separator to consecutive newlines (same as -000)
+## this means we read the info for each sink as a single "line".
+$/="\n\n";
 
-# The second parameter overrides the mixer selection
-# For PulseAudio users, use "pulse"
-# For Jack/Jack2 users, use "jackplug"
-# For ALSA users, you may use "default" for your primary card
-# or you may use hw:# where # is the number of the card desired
-MIXER="default"
-[ -n "$(lsmod | grep pulse)" ] && MIXER="pulse"
-[ -n "$(lsmod | grep jack)" ] && MIXER="jackplug"
-MIXER="${2:-$MIXER}"
-
-# The instance option sets the control to report and configure
-# This defaults to the first control of your selected mixer
-# For a list of the available, use `amixer -D $Your_Mixer scontrols`
-SCONTROL="${BLOCK_INSTANCE:-$(amixer -D $MIXER scontrols |
-                  sed -n "s/Simple mixer control '\([A-Za-z ]*\)',0/\1/p" |
-                  head -n1
-                )}"
-
-# The first parameter sets the step to change the volume by (and units to display)
-# This may be in in % or dB (eg. 5% or 3dB)
-STEP="${1:-5%}"
-
-#------------------------------------------------------------------------
-
-capability() { # Return "Capture" if the device is a capture device
-  amixer -D $MIXER get $SCONTROL |
-    sed -n "s/  Capabilities:.*cvolume.*/Capture/p"
+## Go through the pactl output
+while (<$fh>) {
+    ## If this is the sink we are interested in
+    if (/#$sink/) {
+        ## Extract the current colume of this sink
+        /Volume:.*?(\d+)%/;
+        my $volume=$1;
+        ## If the script has been run with a second argument,
+        ## check whether the volume is above or below that
+        if ($volume_limit) {
+            ## If the volume os greater than or equal to the
+            ## value passed, print "y"
+            if ($volume >= $volume_limit) {
+               print "y\n";
+                exit 0;
+            }
+            else {
+                print "n\n";
+                exit 1;
+            }
+        }   
+        ## Else, if the script has been run with just one argument,
+        ## print the current volume.
+        else {
+            print "$volume%\n";
+        }
+    }#
 }
-
-volume() {
-  amixer -D $MIXER get $SCONTROL $(capability)
-}
-
-format() {
-  perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?\[(on|off)\]/)'
-  perl_filter+='{CORE::say $4 eq "off" ? "MUTE" : "'
-  # If dB was selected, print that instead
-  perl_filter+=$([[ $STEP = *dB ]] && echo '$3' || echo '$1')
-  perl_filter+='"; exit}'
-  perl -ne "$perl_filter"
-}
-
-#------------------------------------------------------------------------
-
-case $BLOCK_BUTTON in
-  3) amixer -q -D $MIXER sset $SCONTROL $(capability) toggle ;;  # right click, mute/unmute
-  4) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}+ unmute ;; # scroll up, increase
-  5) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}- unmute ;; # scroll down, decrease
-esac
-
-volume | format
