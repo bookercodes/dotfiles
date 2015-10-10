@@ -173,7 +173,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # start FF
 bindsym $mod+Shift+f exec firefox
 # start terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec xfce4-terminal
 # kill window
 bindsym $mod+Shift+q kill
 

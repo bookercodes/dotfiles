@@ -47,7 +47,7 @@ set complete+=kspell
 set background=dark
 
 let base16colorspace=256
-
+set t_Co=256 " 256 color mode
 " colorscheme OceanicNext
 colorscheme base16-oceanicnext
 
@@ -68,6 +68,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tpope/vim-surround'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
