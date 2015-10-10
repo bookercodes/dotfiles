@@ -46,6 +46,8 @@ set complete+=kspell
 " main color scheme
 set background=dark
 
+let base16colorspace=256
+
 " colorscheme OceanicNext
 colorscheme base16-oceanicnext
 
@@ -65,13 +67,19 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'scrooloose/nerdcommenter'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 
- " nerd tree
- nnoremap <Leader>f :NERDTreeToggle<Enter>
- let NERDTreeQuitOnOpen = 1
- let NERDTreeAutoDeleteBuffer = 1
- let NERDTreeMinimalUI = 1
- let NERDTreeDirArrows = 1
+" nerd tree
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" nerd commenter
+filetype plugin on
+nmap <Leader>z <Plug>NERDCommenterToggle
+vmap <Leader>z <Plug>NERDCommenterToggle
