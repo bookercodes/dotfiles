@@ -47,6 +47,7 @@ set complete+=kspell
 set background=dark
 
 let base16colorspace=256
+syntax on
 set t_Co=256 " 256 color mode
 " colorscheme OceanicNext
 colorscheme base16-oceanicnext
@@ -69,6 +70,15 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'pangloss/vim-javascript'
+" snipmate deps
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'marcweber/vim-addon-mw-utils'
+" snipmate
+NeoBundle 'garbas/vim-snipmate'
+NeoBundle 'honza/vim-snippets'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
@@ -84,3 +94,8 @@ let NERDTreeDirArrows = 1
 filetype plugin on
 nmap <Leader>z <Plug>NERDCommenterToggle
 vmap <Leader>z <Plug>NERDCommenterToggle
+
+" you complete me
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
