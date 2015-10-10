@@ -4,7 +4,12 @@
   [[default]]
     use_system_font = False
     font = Hack 10
+    background_image = None
     show_titlebar = False
+    palette = "#1B2B34:#EC5f67:#99C794:#FAC863:#6699CC:#C594C5:#5FB3B3:#C0C5CE:#65737E:#EC5f67:#99C794:#FAC863:#6699CC:#C594C5:#5FB3B3:#D8DEE9"
+    foreground_color = "#C0C5CE"
+    background_color = "#1B2B34"
+    cursor_color = "#C0C5CE"
 [layouts]
   [[default]]
     [[[child1]]]
