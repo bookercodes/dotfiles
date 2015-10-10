@@ -19,6 +19,8 @@ let mapleader = ";"
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
+" disable swap files
+set nobackup
 set noswapfile
 
 map <c-j> <c-w>j
@@ -50,3 +52,26 @@ colorscheme base16-oceanicnext
 " line numbers
 set relativenumber 
 set number          
+
+" neobundle
+if 0 | endif
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+call neobundle#end()
+filetype plugin indent on
+NeoBundleCheck
+
+ " nerd tree
+ nnoremap <Leader>f :NERDTreeToggle<Enter>
+ let NERDTreeQuitOnOpen = 1
+ let NERDTreeAutoDeleteBuffer = 1
+ let NERDTreeMinimalUI = 1
+ let NERDTreeDirArrows = 1
