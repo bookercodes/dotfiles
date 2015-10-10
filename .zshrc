@@ -1,12 +1,9 @@
-# Path to your oh-my-zsh installation.
 export ZSH=/home/booker/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
 export TERM="xterm-256color"
+
 ZSH_THEME="agnoster"
-# ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOQUIT="true"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -110,3 +107,6 @@ alias tmuxconf='vim ~/.tmux.conf'
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-oceanicnext.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+export NVM_DIR="/home/booker/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
