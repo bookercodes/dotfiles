@@ -16,6 +16,9 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+# lock
+bindsym $mod+Shift+x exec i3lock --color 475263
+
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down

@@ -73,12 +73,9 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'pangloss/vim-javascript'
-" snipmate deps
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'marcweber/vim-addon-mw-utils'
-" snipmate
-NeoBundle 'garbas/vim-snipmate'
+NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
+
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
@@ -101,3 +98,20 @@ let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
 set cursorline
+
+"let g:UltiSnipsExpandTrigger="<c-J>>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
