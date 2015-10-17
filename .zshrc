@@ -4,7 +4,7 @@ ZSH_THEME="agnoster"
 ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOQUIT="true"
 
-plugins=(git nvm colorize ssh-agent tmux history jump extract)
+plugins=(git nvm colorize ssh-agent tmux history jump extract gitignore)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 

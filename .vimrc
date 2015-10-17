@@ -78,6 +78,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'vim-jsbeautify'
+NeoBundle 'mustache/vim-mustache-handlebars'
 
 call neobundle#end()
 filetype plugin indent on
