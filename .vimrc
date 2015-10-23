@@ -39,10 +39,6 @@ set hlsearch
 set ignorecase
 set smartcase
 
-" spell check for markdown files
-autocmd BufRead,BufNewFile *.md setlocal spell
-set complete+=kspell
-
 " main color scheme
 set background=dark
 
@@ -79,6 +75,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'vim-jsbeautify'
 NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'Chiel92/vim-autoformat'
 
 call neobundle#end()
 filetype plugin indent on
@@ -102,4 +99,11 @@ let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
 set cursorline
-map <c-f> :call JsBeautify()<cr>
+map <c-f> :Autoformat<cr>
+
+" spell check for markdown files
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+autocmd BufRead,BufNewFile *.md setlocal colorcolumn=72
+set complete+=kspell
