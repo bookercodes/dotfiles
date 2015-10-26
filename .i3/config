@@ -189,4 +189,5 @@ bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opaci
 # Compton
 # exec --no-startup-id compton -o 0.3 --backend glx --vsync opengl -b -i 1.0 --config ~/.config/compton.conf
 
-
+exec_always --no-startup-id xmodmap -e "clear lock" #disable caps lock switch
+exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
