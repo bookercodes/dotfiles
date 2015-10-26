@@ -43,6 +43,8 @@ alias tmuxconf='vim ~/.tmux.conf'
 alias pls=please
 alias please='sudo $(fc -ln -1)'
 
+alias copy='xclip -sel clip'
+
 BASE16_SHELL="$HOME/.config/base16-shell/base16-oceanicnext.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
