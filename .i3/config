@@ -7,6 +7,8 @@ font pango: System San Francisco Display 10
 # thin borders
 hide_edge_borders both
 
+new_window 1pixel
+
 # drag windows
 floating_modifier $mod
 
@@ -112,7 +114,6 @@ mode "resize" {
 # resize mode
 bindsym $mod+r mode "resize"
 
-
 set $bg-color #2f343f
 set $inactive-bg-color #2f343f
 set $text-color #f3f4f5
@@ -137,16 +138,11 @@ bar {
   }
 }
 
-# startup
-# exec_always --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
-exec_always --no-startup-id feh --bg-scale /home/booker/.wallpaper.jpg
-
-exec --no-startup-id qtox
-exec --no-startup-id spotify
 
 # sticky window
 bindsym $mod+Shift+s sticky toggle
 
+# floating 
 for_window [class="qTox"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype"] floating enable
@@ -156,6 +152,7 @@ assign [class="Spotify"] $workspace10
 assign [class="Skype"] $workspace9
 assign [class="qTox"] $workspace9
 
+# workspace default monitors
 workspace $workspace1 output DVI-I-2
 workspace $workspace2 output DVI-I-2
 workspace $workspace3 output DVI-I-2
@@ -165,29 +162,26 @@ workspace $workspace6 output DVI-I-2
 workspace $workspace9 output DVI-I-2
 workspace $workspace10 output DVI-I-2
 
+# key-bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 2 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 2 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle # mute sound
-
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-# start FF
 bindsym $mod+Shift+f exec firefox
-# start terminal
 bindsym $mod+Return exec xfce4-terminal
-# kill window
 bindsym $mod+Shift+q kill
-
 bindsym Print exec screenshot
-
-# start dmenu
-# bindsym $mod+d exec dmenu_run -p "> " -nb "#2C2C2C" -sb "#2C2C2C"
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
-# Compton
-# exec --no-startup-id compton -o 0.3 --backend glx --vsync opengl -b -i 1.0 --config ~/.config/compton.conf
+# startup
+exec_always --no-startup-id feh --bg-scale /home/booker/.wallpaper.jpg
+exec_always --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+exec --no-startup-id spotify
+#exec_always --no-startup-id compton -o 0.3 --backend glx --vsync opengl -b -i 1.0 --config ~/.config/compton.conf
 
-exec_always --no-startup-id xmodmap -e "clear lock" #disable caps lock switch
-exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+# Keys
+exec_always xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+exec_always xmodmap -e "keycode 66 = Escape NoSymbol Escape"
