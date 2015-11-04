@@ -77,6 +77,11 @@ NeoBundle 'vim-jsbeautify'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'Chiel92/vim-autoformat'
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mkitt/tabline.vim'
 
 call neobundle#end()
 filetype plugin indent on
@@ -114,3 +119,16 @@ nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 "nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+set laststatus=2
+
+" Tab navigation like Firefox.
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
