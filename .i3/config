@@ -7,8 +7,6 @@ font pango: System San Francisco Display 10
 # thin borders
 hide_edge_borders both
 
-new_window 1pixel
-
 # drag windows
 floating_modifier $mod
 
@@ -183,5 +181,5 @@ exec --no-startup-id spotify
 #exec_always --no-startup-id compton -o 0.3 --backend glx --vsync opengl -b -i 1.0 --config ~/.config/compton.conf
 
 # Keys
-exec_always xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
-exec_always xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+exec_always xmodmap -e "clear lock" #disable caps lock switch
+exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape

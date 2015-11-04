@@ -105,5 +105,5 @@ map <c-f> :Autoformat<cr>
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-autocmd BufRead,BufNewFile *.md setlocal colorcolumn=72
+autocmd BufRead,BufNewFile *.md setlocal colorcolumn=80
 set complete+=kspell

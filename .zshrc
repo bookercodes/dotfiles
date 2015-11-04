@@ -1,7 +1,7 @@
 export ZSH=/home/booker/.oh-my-zsh
 export TERM="xterm-256color"
 ZSH_THEME="agnoster"
-#ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOQUIT="true"
 
 plugins=(git nvm colorize ssh-agent tmux history jump extract gitignore)
