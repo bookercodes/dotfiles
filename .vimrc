@@ -23,10 +23,10 @@ vnoremap > >gv  " better indentation
 set nobackup
 set noswapfile
 
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+"map <c-j> <c-w>j
+"map <c-k> <c-w>k
+"map <c-l> <c-w>l
+"map <c-h> <c-w>h
 
 set tabstop=2
 set softtabstop=2
@@ -76,6 +76,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'vim-jsbeautify'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'Chiel92/vim-autoformat'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 call neobundle#end()
 filetype plugin indent on
@@ -107,3 +108,9 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile *.md setlocal colorcolumn=80
 set complete+=kspell
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+"nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
