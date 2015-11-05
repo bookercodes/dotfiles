@@ -140,7 +140,7 @@ bar {
 # sticky window
 bindsym $mod+Shift+s sticky toggle
 
-# floating 
+# floating
 for_window [class="qTox"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype"] floating enable

@@ -4,7 +4,7 @@ autocmd! bufwritepost .vimrc source %
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
-set pastetoggle=<F2> 
+set pastetoggle=<F2>
 set clipboard=unnamed
 
 noremap <C-n> :nohl<CR>
@@ -49,8 +49,8 @@ set t_Co=256 " 256 color mode
 colorscheme base16-oceanicnext
 
 " line numbers
-set relativenumber 
-set number          
+set relativenumber
+set number
 
 " neobundle
 if 0 | endif
@@ -82,6 +82,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mkitt/tabline.vim'
+NeoBundle 'ntpeters/vim-better-whitespace'
 
 call neobundle#end()
 filetype plugin indent on
@@ -110,9 +111,17 @@ map <c-f> :Autoformat<cr>
 " spell check for markdown files
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md setlocal spell
-autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-autocmd BufRead,BufNewFile *.md setlocal colorcolumn=80
+"autocmd BufRead,BufNewFile *.md setlocal fo=cat
 set complete+=kspell
+
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * match OverLength /\%80v.*/
+augroup END
+
+set wrap
+set textwidth=80
+set colorcolumn=80
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
@@ -125,6 +134,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 set laststatus=2
 
+let g:indentLine_noConcealCursor = 1
+let g:indentLine_color_term = 239
+let g:indentLine_char = '|'
+
 " Tab navigation like Firefox.
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
@@ -132,3 +145,5 @@ nnoremap <C-t>     :tabnew<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
+autocmd BufWritePre * StripWhitespace
+
