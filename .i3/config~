@@ -185,5 +185,3 @@ exec --no-startup-id spotify
 # Keys
 exec_always xmodmap -e "clear lock" #disable caps lock switch
 exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
-
-exec compton -f
