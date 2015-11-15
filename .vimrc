@@ -7,9 +7,9 @@ autocmd! bufwritepost .vimrc source %
 set pastetoggle=<F2>
 set clipboard=unnamed
 
-noremap <C-n> :nohl<CR>
-vnoremap <C-n> :nohl<CR>
-inoremap <C-n> :nohl<CR>
+"noremap <C-n> :nohl<CR>
+"vnoremap <C-n> :nohl<CR>
+"inoremap <C-n> :nohl<CR>
 
 let mapleader = ";"
 
@@ -67,8 +67,9 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'othree/yajs.vim'
+"NeoBundle 'othree/yajs.vim'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 "NeoBundle 'SirVer/ultisnips'
 "NeoBundle 'honza/vim-snippets'
 NeoBundle 'scrooloose/syntastic'
@@ -81,8 +82,15 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mkitt/tabline.vim'
+"NeoBundle 'mkitt/tabline.vim'
 NeoBundle 'ntpeters/vim-better-whitespace'
+NeoBundle 'suan/vim-instant-markdown'
+NeoBundle 'junegunn/vim-easy-align'
+"NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'Quramy/tsuquyomi'
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'jistr/vim-nerdtree-tabs'
+
 
 call neobundle#end()
 filetype plugin indent on
@@ -147,3 +155,11 @@ inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
 autocmd BufWritePre * StripWhitespace
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" require jsx for files with js plugin
+let g:jsx_ext_required = 0
