@@ -121,8 +121,8 @@ set $urgent-bg-color     #E53935
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 # bar
@@ -181,10 +181,9 @@ exec_always --no-startup-id feh --bg-scale /home/booker/.wallpaper.jpg
 exec_always --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2 --mode 1920x1080 --pos 1920x0 --rotate normal
 exec --no-startup-id spotify
 exec --no-startup-id skype
-#exec_always --no-startup-id compton -o 0.3 --backend glx --vsync opengl -b -i 1.0 --config ~/.config/compton.conf
 
 # Keys
 exec_always xmodmap -e "clear lock" #disable caps lock switch
 exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 
-exec compton -f
+exec --no-startup-id compton -f
