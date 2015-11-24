@@ -1,0 +1,10 @@
+#
+# $HOME/.config/pulseaudio-ctl/config
+#
+
+# The default setting is for pulseaudio-ctl to NOT increase to volume level
+# above 100 % but Some users may wish exceed this level. If this describes
+# your use case, uncomment the UPPER_THRESHOLD variable below setting it to
+# the new upper threshold.
+# 
+UPPER_THRESHOLD=100
