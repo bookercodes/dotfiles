@@ -33,6 +33,10 @@ if ask "Install symlink for .zshrc?" Y; then
   ln -sf ${dir}/.zshrc ${HOME}/.zshrc
 fi
 
+if ask "Install symlink for .tmux.conf?" Y; then
+  ln -sf ${dir}/.tmux.conf ${HOME}/.tmux.conf
+fi
+
 if ask "Install symlink for .zprofile?" Y; then
   ln -sf ${dir}/.zprofile ${HOME}/.zprofile
 fi
