@@ -20,6 +20,7 @@ let NERDTreeDirArrows = 1
 
 " Line Numbers
 set number
+set relativenumber
 
 " Easy Align
 xmap ga <Plug>(EasyAlign)
