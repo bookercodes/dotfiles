@@ -47,4 +47,10 @@ set colorcolumn=80
 set tw=80
 set formatoptions+=t
 
+" Tab Settings
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
 
