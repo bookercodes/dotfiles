@@ -5,6 +5,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'pangloss/vim-javascript'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'plasticboy/vim-markdown'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " Leader

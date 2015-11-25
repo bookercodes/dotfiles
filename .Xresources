@@ -60,7 +60,7 @@ URxvt*color21:                        #eeeeee
 
 Xcursor.size: 16W
 URxvt.scrollBar: false
-URxvt.font: xft:Hack:size=14
+URxvt.font: xft:Hack:size=12
 URxvt.url-launcher: /usr/bin/firefox
 
 URxvt*loginShell:  true
