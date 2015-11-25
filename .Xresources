@@ -1,21 +1,15 @@
-rofi.background: #073642
-rofi.foreground: #eee8d5
-rofi.highlightbg: #b58900
-rofi.highlightfg: #ffffff
-rofi.bordercolor: #678698
-rofi.padding: 1
-rofi.lines: 10
-rofi.borderwidth: 1
-rofi.opacity: 100
-rofi.font: System San Francisco Display 18
-rofi.location: 7
-rofi.yoffset: 0
-rofi.xoffset: 0
+rofi.background: #151718
+rofi.foreground: #d6d6d6
+rofi.hlbg: #41535B
+rofi.hlfg: #ffffff
+rofi.bc: #151718
+rofi.eh: 2
 rofi.width: 100
-rofi.fixed_num_lines: 1
-rofi.hmode: false
-rofi.terminal: st
-rofi.ssh-set-title: false
+rofi.padding: 480
+rofi.lines: 5
+rofi.line-margin: 5
+rofi.font: System San Francisco Display 18
+rofi.opacity: 80
 
 URxvt*background:                     #151718
 URxvt*foreground:                     #d6d6d6
