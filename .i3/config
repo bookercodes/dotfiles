@@ -92,7 +92,7 @@ bindsym XF86AudioPrev exec playerctl previous
   exec --no-startup-id dunst
   exec --no-startup-id dropbox
   exec --no-startup-id spotify
-  exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/J4RCODi.jpg
+  exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/arc.png
 
 # Workspace-Related Bindings
   bindsym $mod+1 workspace $workspace1
