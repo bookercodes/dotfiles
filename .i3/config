@@ -33,7 +33,7 @@
   set $monitor2 "DVI-I-3"
 
 # General Configuration
-  font pango:System San Francisco Display 14
+  font pango:System San Francisco Display 10
   floating_modifier $mod
   hide_edge_borders both
   new_window none

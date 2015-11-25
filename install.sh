@@ -37,3 +37,11 @@ ask "Install symlink for .gtkrc-2.0?" Y && ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtk
 ask "Install symlink for .i3blocks.conf?" Y && ln -sf ${dir}/.i3blocks.conf ${HOME}/.i3blocks.conf
 ask "Install symlink for .scripts?" Y && ln -sfn ${dir}/.scripts ${HOME}/.scripts
 ask "Install symlink for .i3?" Y && ln -sfn ${dir}/.i3 ${HOME}/.i3
+ask "Install symlink for .config/nvim?" Y && ln -sfn ${dir}/.config/nvim ${HOME}/.config/nvim
+ask "Install symlink for .config/base16-shell?" Y && ln -sfn ${dir}/.config/base16-shell ${HOME}/.config/base16-shell
+ask "Install symlink for .config/dunst?" Y && ln -sfn ${dir}/.config/dunst ${HOME}/.config/dunst
+ask "Install symlink for .config/gtk-2.0?" Y && ln -sfn ${dir}/.config/gtk-2.0 ${HOME}/.config/gtk-2.0
+ask "Install symlink for .config/gtk-3.0?" Y && ln -sfn ${dir}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
+ask "Install symlink for .config/pulse?" Y && ln -sfn ${dir}/.config/pulse ${HOME}/.config/pulse
+ask "Install symlink for .config/imgur-screenshot?" Y && ln -sfn ${dir}/.config/imgur-screenshot ${HOME}/.config/imgur-screenshot
+ask "Install symlink for .config/pulseaudio-ctl?" Y && ln -sfn ${dir}/.config/pulseaudio-ctl ${HOME}/.config/pulseaudio-ctl
