@@ -6,17 +6,13 @@ Plug 'pangloss/vim-javascript'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdcommenter'
+Plug 'spf13/vim-autoclose'
+Plug 'bling/vim-airline'
 call plug#end()
 
 " Leader
 let mapleader = "\<Space>"
-
-" NERDTree
-nnoremap <Leader>f :NERDTreeToggle<Enter>
-let NERDTreeQuitOnOpen = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
 
 " Line Numbers
 set number
@@ -56,3 +52,13 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+" NERD Commenter Settings
+nmap <Leader>z <Plug>NERDCommenterToggle
+vmap <Leader>z <Plug>NERDCommenterToggle
+
+" NERD Tree Settings
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1

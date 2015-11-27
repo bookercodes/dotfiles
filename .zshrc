@@ -11,7 +11,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR="nvim"
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 alias l="ls -lFh"
 alias la="ls -lAFh"
