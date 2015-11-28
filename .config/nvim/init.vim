@@ -9,6 +9,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'
 Plug 'spf13/vim-autoclose'
 Plug 'bling/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'
+Plug 'scrooloose/syntastic'
 call plug#end()
 
 " Leader
@@ -57,8 +61,18 @@ nmap <Leader>z <Plug>NERDCommenterToggle
 vmap <Leader>z <Plug>NERDCommenterToggle
 
 " NERD Tree Settings
-nnoremap <Leader>f :NERDTreeToggle<Enter>
+nmap <Leader>f :NERDTreeToggle<Enter>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+" Emmet
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+" Synastic
+let g:syntastic_javascript_checkers=['standard']
+let g:syntastic_javascript_standard_exec = 'semistandard'
+autocmd bufwritepost *.js silent !semistandard % --format
+set autoread
