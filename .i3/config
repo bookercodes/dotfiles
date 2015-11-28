@@ -56,8 +56,8 @@
   bindsym $mod+v layout toggle split
   #bindsym $mod+h split h
   #bindsym $mod+space focus mode_toggle
-  bindsym $mod+r mode "resize"
-  mode "resize" {
+  bindsym $mod+r mode "  "
+  mode "  " {
     bindsym h resize shrink width 10 px or 10 ppt
     bindsym j resize grow height 10 px or 10 ppt
     bindsym k resize shrink height 10 px or 10 ppt
@@ -144,7 +144,8 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Bar
   bar {
-    font pango: System San Francisco Display, FontAwesome 12
+    font pango: System San Francisco Display, FontAwesome 11
+    height 25
     status_command i3blocks
     position bottom
     strip_workspace_numbers yes
