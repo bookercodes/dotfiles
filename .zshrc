@@ -33,6 +33,7 @@ alias tmuxconf="nvim ~/.tmux.conf"
 alias gc="git commit -m "$1""
 alias gaa="git add -A ."
 alias gp="git push $1 $2"
+alias glo="git log --oneline"
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

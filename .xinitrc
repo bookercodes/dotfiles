@@ -11,6 +11,7 @@ xrdb -merge $HOME/.Xresources
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
+PATH=$PATH:$HOME:$HOME/bin:$HOME/.scripts/
 
 .screenlayout/default.sh &
 compton &

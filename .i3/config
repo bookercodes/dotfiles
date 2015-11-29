@@ -148,6 +148,7 @@ bindsym XF86AudioPrev exec playerctl previous
     status_command i3blocks
     position bottom
     strip_workspace_numbers yes
+    height 25
     bindsym button4 nop
     bindsym button5 nop
     colors {

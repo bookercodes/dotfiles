@@ -71,11 +71,11 @@ let NERDTreeDirArrows = 1
 " Emmet
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
-" Synastic
-let g:syntastic_javascript_checkers=['standard']
-let g:syntastic_javascript_standard_exec = 'semistandard'
-autocmd bufwritepost *.js silent !semistandard % --format
-set autoread
+"Synastic
+"let g:syntastic_javascript_checkers=['standard']
+"let g:syntastic_javascript_standard_exec = 'semistandard'
+"autocmd bufwritepost *.js silent !semistandard % --format
+"set autoread
 
 " More logical panel navigation
 map <c-j> <c-w>j
