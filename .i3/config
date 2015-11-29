@@ -145,7 +145,6 @@ bindsym XF86AudioPrev exec playerctl previous
 # Bar
   bar {
     font pango: System San Francisco Display, FontAwesome 11
-    height 25
     status_command i3blocks
     position bottom
     strip_workspace_numbers yes

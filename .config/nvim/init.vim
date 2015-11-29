@@ -76,3 +76,10 @@ let g:syntastic_javascript_checkers=['standard']
 let g:syntastic_javascript_standard_exec = 'semistandard'
 autocmd bufwritepost *.js silent !semistandard % --format
 set autoread
+
+" More logical panel navigation
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
