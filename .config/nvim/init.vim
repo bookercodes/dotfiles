@@ -13,6 +13,7 @@ Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'scrooloose/syntastic'
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 " Leader
@@ -83,3 +84,7 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+" Vim auto-format
+noremap <F3> :Autoformat<CR>
+
+let g:python3_host_prog = 'python'
