@@ -30,7 +30,7 @@ alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 
 # Git aliases
-alias gc="git commit -m "$1""
+alias gcm="git commit -m "$1""
 alias gaa="git add -A ."
 alias gp="git push $1 $2"
 alias glo="git log --oneline"
