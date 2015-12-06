@@ -18,7 +18,7 @@
   set $base0E #c0b7f9
   set $base0F #fcc09e
 
-  set $workspace1 "1: "
+  set $workspace1 "1: "
   set $workspace2 "2: "
   set $workspace3 "3: "
   set $workspace4 "4: "
@@ -70,7 +70,7 @@
   bindsym $mod+Shift+r restart
 
 # Program-Related Bindings
-  bindsym $mod+Shift+f exec firefox
+  bindsym $mod+Shift+f exec chromium
   bindsym $mod+Return exec i3-sensible-terminal
   bindsym $mod+d exec rofi -show run
   bindsym --release Print exec imgur-screenshot

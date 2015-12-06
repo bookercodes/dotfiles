@@ -14,7 +14,14 @@ Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'scrooloose/syntastic'
 Plug 'Chiel92/vim-autoformat'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'ternjs/tern_for_vim'
 call plug#end()
+
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " Leader
 let mapleader = "\<Space>"
@@ -70,21 +77,22 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 " Emmet
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
-"Synastic
-"let g:syntastic_javascript_checkers=['standard']
-"let g:syntastic_javascript_standard_exec = 'semistandard'
-"autocmd bufwritepost *.js silent !semistandard % --format
-"set autoread
 
-" More logical panel navigation
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+" Switch between panes
+nnoremap <Tab> <c-w>w
+nnoremap <bs> <c-w>W
 
-" Vim auto-format
-noremap <F3> :Autoformat<CR>
+" Syntatsic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_scss_checkers = ['scss_lint']
 
-let g:python3_host_prog = 'python'
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+

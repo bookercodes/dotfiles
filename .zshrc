@@ -7,7 +7,10 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(tmux jump)
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+
+export PATH="$(ruby -rubygems -e "puts Gem.user_dir")/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH=~/bin:$PATH
+
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR="nvim"
@@ -30,10 +33,13 @@ alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 
 # Git aliases
+alias gs="git status"
+alias gc="git clone $1 $2"
 alias gcm="git commit -m "$1""
 alias gaa="git add -A ."
-alias gp="git push $1 $2"
+alias gpo="git push origin $1"
 alias glo="git log --oneline"
+alias grhh="git reset --hard HEAD"
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
