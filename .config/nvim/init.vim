@@ -16,10 +16,17 @@ Plug 'scrooloose/syntastic'
 Plug 'Chiel92/vim-autoformat'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'Valloric/YouCompleteMe'
-Plug 'ternjs/tern_for_vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
-autocmd FileType javascript setlocal omnifunc=tern#Complete
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
