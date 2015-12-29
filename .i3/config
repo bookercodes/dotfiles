@@ -52,7 +52,7 @@
   bindsym $mod+Shift+k move up
   bindsym $mod+Shift+l move right
   bindsym $mod+Shift+space floating toggle
-  bindsym $mod+f fullscreen toggl
+  bindsym $mod+f fullscreen toggle
   bindsym $mod+v layout toggle split
   #bindsym $mod+h split h
   #bindsym $mod+space focus mode_toggle
@@ -89,7 +89,7 @@
   exec --no-startup-id nm-applet
   exec --no-startup-id dunst
   exec --no-startup-id dropbox
-  exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
+  exec_always --no-startup-id feh --bg-scale ~/.wallpaper.png
 
 # Workspace-Related Bindings
   bindsym $mod+1 workspace $workspace1
