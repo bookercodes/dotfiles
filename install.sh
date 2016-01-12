@@ -28,7 +28,6 @@ ask() {
 
 dir=`pwd`
 
-
 if ask "Install symlink for .zshrc?" Y; then
   ln -sf ${dir}/.zshrc ${HOME}/.zshrc
 fi
