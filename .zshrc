@@ -8,7 +8,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(tmux jump)
 
 
-export PATH="$(ruby -rubygems -e "puts Gem.user_dir")/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export PATH=~/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
