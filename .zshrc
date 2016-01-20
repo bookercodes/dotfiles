@@ -34,6 +34,8 @@ alias gpo="git push origin $1"
 alias glo="git log --oneline"
 alias grhh="git reset --hard HEAD"
 
+alias xres="xrdb ~/.Xresources"
+
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
