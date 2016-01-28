@@ -68,3 +68,12 @@ URxvt*fading:  30
 
 URxvt.internalBorder: 0
 URxvt.externalBorder: 0
+
+URxvt.perl-ext: default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+URxvt.perl-ext-common: ...,resize-font,...
+
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up<Paste>

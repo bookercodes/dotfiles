@@ -27,6 +27,7 @@ alias tmuxconf="nvim ~/.tmux.conf"
 
 # Git aliases
 alias gs="git status"
+alias gd="git diff"
 alias gc="git clone $1 $2"
 alias gcm="git commit -m "$1""
 alias gaa="git add -A ."
