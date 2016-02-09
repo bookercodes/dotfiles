@@ -35,6 +35,15 @@ alias gaa="git add -A ."
 alias gpo="git push origin $1"
 alias glo="git log --oneline"
 alias grhh="git reset --hard HEAD"
+alias gcp="git cherry-pick $1"
+
+# npm aliases
+alias ni="npm install";
+alias niS="npm i -S "
+alias niD="npm i -D "
+alias nrs="npm run start";
+alias nrb="npm run build";
+alias nrt="npm run test";
 
 alias xres="xrdb ~/.Xresources"
 
