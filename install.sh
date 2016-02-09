@@ -44,10 +44,6 @@ if ask "Install symlink for .zshrc?" Y; then
   ln -sf ${dir}/.zshrc ${HOME}/.zshrc
 fi
 
-if ask "Install symlink for .zprofile?" Y; then
-  ln -sf ${dir}/.zprofile ${HOME}/.zprofile
-fi
-
 if ask "Install symlink for .yaourtrc?" Y; then
   ln -sf ${dir}/.yaourtrc ${HOME}/.yaourtrc
 fi
