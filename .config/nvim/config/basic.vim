@@ -1,6 +1,6 @@
-" Automatically apply Vim configuration when $MYVIMRC is updated
 augroup AutoCommands
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
 " Colors
@@ -11,6 +11,11 @@ set background=dark
 
 " Leader
 let mapleader = "\<Space>"
+
+"
+noremap <C-n> :nohl<CR>
+vnoremap <C-n> :nohl<CR>
+inoremap <C-n> :nohl<CR>
 
 " Line numbers
 set number
@@ -62,7 +67,7 @@ let NERDTreeDirArrows = 1
 " Emmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-noremap <Leader>e :Emmet 
+noremap <Leader>e :Emmet
 
 " ControlP
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -75,11 +80,22 @@ set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
+" nmap <leader>st :SyntasticToggleMode<cr>
 
 " Neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
+
+
+" JSX
+let g:jsx_ext_required = 0
 
 

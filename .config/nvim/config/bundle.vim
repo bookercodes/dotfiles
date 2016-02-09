@@ -15,6 +15,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat'
 NeoBundle 'moll/vim-node'
 NeoBundle 'ternjs/tern_for_vim'
 NeoBundle 'tmux-plugins/vim-tmux'
@@ -24,6 +25,8 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'mtscout6/syntastic-local-eslint.vim'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 call neobundle#end()
 filetype plugin indent on

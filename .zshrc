@@ -14,6 +14,10 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR="nvim"
 
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection clipboard -o'
+alias vi='nvim'
+
 alias l="ls -lFh"
 alias la="ls -lAFh"
 alias ll="ls -l"
