@@ -1,0 +1,4 @@
+# Prevent Yaourt from asking so many questions that I just answer "yes" to 
+# blindly.
+BUILD_NOCONFIRM=1
+EDITFILES=0
