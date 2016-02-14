@@ -11,6 +11,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'othree/es.next.syntax.vim'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'pangloss/vim-javascript'  " Augments yajs.vim
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
@@ -19,19 +20,23 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'moll/vim-node'
 NeoBundle 'ternjs/tern_for_vim'
 NeoBundle 'tmux-plugins/vim-tmux'
-NeoBundle 'wellle/tmux-complete.vim'
-NeoBundle 'mattn/emmet-vim'
+NeoBundle 'wellle/tmux-complete.vim' " Make Omnicomplete aware of adjacent tmux panes
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'mtscout6/syntastic-local-eslint.vim'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
-NeoBundle 'godlygeek/tabular'
+NeoBundle 'godlygeek/tabular'        " Required dependency of vim-markdown
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'millermedeiros/vim-esformatter'
-NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'mattn/webapi-vim'         " Required dependency of gist-vim
 NeoBundle 'mattn/gist-vim'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'tpope/vim-fugitive'       " Required dependency of vim-airline
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'terryma/vim-expand-region'
 
 call neobundle#end()
 filetype plugin indent on
