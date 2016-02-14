@@ -2,8 +2,8 @@ export ZSH=/home/booker/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
-# ZSH_TMUX_AUTOSTART="true"
-# ZSH_TMUX_AUTOQUIT="true"
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOQUIT="true"
 
 plugins=(tmux jump)
 
@@ -25,7 +25,7 @@ alias ll="ls -l"
 alias j="jump"
 
 alias zshrc="nvim ~/.zshrc"
-alias nviminit="nvim ~/.config/nvim/init.vim"
+alias nviminit="nvim ~/.config/nvim/"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 
@@ -43,8 +43,9 @@ alias gcp="git cherry-pick $1"
 
 # npm aliases
 alias ni="npm install";
-alias niS="npm i -S "
-alias niD="npm i -D "
+alias nis="npm i -S "
+alias nid="npm i -D "
+alias nig="npm i -g "
 alias nrs="npm run start";
 alias nrb="npm run build";
 alias nrt="npm run test";

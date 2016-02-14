@@ -27,7 +27,13 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'millermedeiros/vim-esformatter'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/gist-vim'
 
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
+

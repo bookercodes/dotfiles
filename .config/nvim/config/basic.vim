@@ -93,9 +93,14 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-
-
 " JSX
 let g:jsx_ext_required = 0
 
+" Vim Markdown
+au BufRead,BufNewFile *.md setlocal textwidth=80
+let g:vim_markdown_folding_disabled = 1
+autocmd BufRead,BufNewFile *.md setlocal spell
+set complete+=kspell
 
+"let g:formatdef_my_custom_jsx = "'esformatter --indent.value=\"foo\" '.bufname('%')"
+"let g:formatters_javascript_jsx = ['my_custom_jsx']

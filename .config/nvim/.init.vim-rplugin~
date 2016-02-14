@@ -1,6 +1,6 @@
 " python3 plugins
 call remote#host#RegisterPlugin('python3', '/home/booker/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete.py', [
-      \ {'sync': 1, 'name': 'DeopleteInitializePython', 'opts': {}, 'type': 'command'},
+      \ {'sync': 1, 'name': 'DeopleteInitializePython', 'type': 'command', 'opts': {}},
      \ ])
 
 
