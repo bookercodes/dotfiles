@@ -26,6 +26,7 @@ nnoremap <Tab> <c-w>w " When Tab is pressed, cycle panes
 
 map <C-n> :nohl<CR> " When Control + n is pressed, remove search highlighting
 map <F5> :source $MYVIMRC<CR> " When F5 is pressed, reload Vim settings
+map q: :q
 
 set cursorline
 set cursorcolumn
@@ -64,15 +65,6 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_map = '<C-p>'
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_aggregate_errors = 1
-
 " Vim JSX
 let g:jsx_ext_required = 0 " Also format .js files
 
@@ -107,3 +99,32 @@ au Syntax * RainbowParenthesesLoadBraces
 " Vim expand region
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
+
+" Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+function! NeomakeESlintChecker()
+  let l:npm_bin = ''
+  let l:eslint = 'eslint'
+  if executable('npm')
+    let l:npm_bin = split(system('npm bin'), '\n')[0]
+  endif
+  if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
+    let l:eslint = l:npm_bin . '/eslint'
+  endif
+  let b:neomake_javascript_eslint_exe = l:eslint
+endfunction
+autocmd FileType javascript :call NeomakeESlintChecker()
+autocmd! BufWritePost,BufReadPost * Neomake
+let g:neomake_warning_sign = {
+  \ 'text': 'W',
+  \ 'texthl': 'WarningMsg',
+  \ }
+let g:neomake_error_sign = {
+  \ 'text': 'E',
+  \ 'texthl': 'ErrorMsg',
+  \ }
+nmap <Leader><Space>o :lopen<CR>      " open location window
+nmap <Leader><Space>c :lclose<CR>     " close location window
+nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+nmap <Leader><Space>n :lnext<CR>      " next error/warning
+nmap <Leader><Space>p :lprev<CR>      " previous error/warning

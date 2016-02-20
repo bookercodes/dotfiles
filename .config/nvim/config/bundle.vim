@@ -13,16 +13,14 @@ NeoBundle 'othree/es.next.syntax.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'pangloss/vim-javascript'  " Augments yajs.vim
 NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'moll/vim-node'
 NeoBundle 'ternjs/tern_for_vim'
-NeoBundle 'tmux-plugins/vim-tmux'
+NeoBundle 'tmux-plugins/vim-tmux'    " tmux.conf syntax highlighting
 NeoBundle 'wellle/tmux-complete.vim' " Make Omnicomplete aware of adjacent tmux panes
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'mtscout6/syntastic-local-eslint.vim'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'mxw/vim-jsx'
@@ -38,6 +36,7 @@ NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'mhinz/vim-grepper'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'benekastah/neomake'
 
 call neobundle#end()
 filetype plugin indent on
