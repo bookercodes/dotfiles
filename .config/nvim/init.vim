@@ -11,6 +11,7 @@ set background=dark
 set ignorecase " When query is lowercase, ignore case
 set smartcase  " When query contains uppercase, pay attention to case
 set number
+set noeol
 set relativenumber
 set expandtab
 set softtabstop=2
@@ -22,12 +23,17 @@ set laststatus=2
 set omnifunc=csscomplete#CompleteCSS
 set updatetime=250
 
+" Remap : -> ;
+nnoremap ; :
+vnoremap ; :
+nnoremap : ;
+
 vnoremap < <gv
 vnoremap > >gv
 
-map <C-n> :nohl<CR>
-map <F5> :source $MYVIMRC<CR>
-map q: :q
+map <C-n> ;nohl<CR>
+map <F5> ;source $MYVIMRC<CR>
+map q: ;q
 
 set cursorline
 set cursorcolumn
@@ -46,15 +52,16 @@ return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
 
 " NERD Tree
-nmap <Leader>f :NERDTreeToggle<Enter>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+ nmap <Leader>f ;NERDTreeToggle<Enter>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 " NERD Commenter
-let NERDSpaceDelims=1 " Add space after comment symbol
+let NERDSpaceDelims=1 " Add space after commentugar pulled from janus... This ensures that it opens in current
+" folder and remembers recent folder and other things that are awkward with
+" basic nerdtree
 
 " Neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -137,3 +144,25 @@ nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 
 " Git Gutter
 let g:gitgutter_sign_column_always = 1
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" start: automatically trim trailing whitespace
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+" Gist
+let g:gist_open_browser_after_post = 1
+let g:gist_private = 1
