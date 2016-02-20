@@ -26,3 +26,10 @@ nnoremap <Tab> <c-w>w " When Tab is pressed, cycle panes
 
 map <C-n> :nohl<CR> " When Control + n is pressed, remove search highlighting
 map <F5> :source $MYVIMRC<CR> " When F5 is pressed, reload Vim settings
+
+set cursorline
+set cursorcolumn
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%121v.\+/
+set colorcolumn=120

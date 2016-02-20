@@ -2,8 +2,8 @@ export ZSH=/home/booker/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
-ZSH_TMUX_AUTOSTART="true"
-ZSH_TMUX_AUTOQUIT="true"
+# ZSH_TMUX_AUTOSTART="true"
+# ZSH_TMUX_AUTOQUIT="true"
 
 plugins=(tmux jump)
 

@@ -19,15 +19,11 @@ let NERDTreeDirArrows = 1
 " NERD Commenter
 let NERDSpaceDelims=1 " Add space after comment symbol
 
-" Emmet
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-noremap <Leader>e :Emmet
-
 " Neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 " ControlP
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -37,15 +33,10 @@ let g:ctrlp_map = '<C-p>'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height = 5
 
 " Vim JSX
 let g:jsx_ext_required = 0 " Also format .js files
@@ -65,3 +56,19 @@ let g:airline_powerline_fonts = 1
 " Vim Easy Align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" Tern
+set completeopt-=preview " Stop scratch window opening all the time :@
+
+" Grepper
+nnoremap <leader>g :Grepper -tool git<cr>
+
+" Rainbow
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Vim expand region
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)

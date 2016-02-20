@@ -34,9 +34,10 @@ NeoBundle 'mattn/webapi-vim'         " Required dependency of gist-vim
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tpope/vim-fugitive'       " Required dependency of vim-airline
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'terryma/vim-expand-region'
+NeoBundle 'mhinz/vim-grepper'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'kien/rainbow_parentheses.vim'
 
 call neobundle#end()
 filetype plugin indent on
