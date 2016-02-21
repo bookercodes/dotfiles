@@ -15,7 +15,7 @@ URxvt*background:                     #101218
 URxvt*foreground:                     #d1d4e0
 URxvt*cursorColor:                    #d1d4e0
 URxvt*scrollColor:                    #d1d4e0
-URxvt*highlightColor:                 #252936
+URxvt*highlightColor:                 #1f222d
 URxvt*highlightTextColor:             #C0C5CE
 
 URxvt*color0:                         #101218
@@ -42,13 +42,12 @@ URxvt*color19:                        #252936
 URxvt*color20:                        #C0C5CE
 URxvt*color21:                        #C9CCDB
 
+URxvt.perl-ext-common: ...resize-font,fullscreen,...
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
 
-URxvt.perl-ext-common: default,clipboard
-URxvt.iso14755: False
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.clipboard.copycmd:  xsel -ib
-URxvt.clipboard.pastecmd: xsel -ob
-
-
-XTerm*ptyInitialErase: true
+URxvt.perl-ext: default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true

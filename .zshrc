@@ -1,12 +1,11 @@
 export ZSH=/home/booker/.oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME="blinks"
 COMPLETION_WAITING_DOTS="true"
-# ZSH_TMUX_AUTOSTART="true"
-# ZSH_TMUX_AUTOQUIT="true"
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOQUIT="true"
 
 plugins=(tmux jump)
-
 
 export PATH=~/bin:$PATH
 
@@ -50,7 +49,7 @@ alias nrs="npm run start";
 alias nrb="npm run build";
 alias nrt="npm run test";
 
-alias xres="nvim ~./.Xresources && xrdb ~/.Xresources"
+alias xres="nvim ~/.Xresources && xrdb ~/.Xresources"
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
