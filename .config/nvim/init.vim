@@ -23,6 +23,12 @@ set laststatus=2
 set omnifunc=csscomplete#CompleteCSS
 set updatetime=250
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+map <C-H> <Nop>
+nnoremap <C-H> <C-W><C-H>
+
 " Remap : -> ;
 nnoremap ; :
 vnoremap ; :
@@ -181,11 +187,6 @@ autocmd FileType * autocmd BufWritePre <buffer> ;call <SID>StripTrailingWhitespa
 " Gist
 let g:gist_open_browser_after_post = 1
 let g:gist_private = 1
-
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
