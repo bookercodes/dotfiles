@@ -42,12 +42,11 @@ URxvt*color19:                        #252936
 URxvt*color20:                        #C0C5CE
 URxvt*color21:                        #C9CCDB
 
-URxvt.perl-ext-common: ...resize-font,fullscreen,...
-URxvt.keysym.F11: perl:fullscreen:switch
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger: C-Up
-
 URxvt.perl-ext: default,url-select
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
+URxvt.perl-ext-common: ...,resize-font,fullscreen,...
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
