@@ -5,6 +5,7 @@ call neobundle#begin(expand('/home/booker/.config/nvim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'vim-airline/vim-airline', { 'depends': ['tpope/vim-fugitive'] }
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'easymotion/vim-easymotion'
@@ -21,13 +22,13 @@ NeoBundleLazy 'benekastah/neomake', {'on_cmd': ['Neomake']}
 NeoBundleLazy 'Shougo/deoplete.nvim', { 'on_i': 1 }
 NeoBundleLazy 'wellle/tmux-complete.vim', { 'on_i': 1 }
 NeoBundleLazy 'jiangmiao/auto-pairs', { 'on_i': 1 }
-NeoBundleLazy 'othree/yajs.vim', {'on_ft': 'javascript'}
 NeoBundleLazy 'millermedeiros/vim-esformatter', { 'on_cmd': ['EsFormatter'] }
 NeoBundleLazy 'othree/html5.vim', {'on_ft': 'html'}
+NeoBundleLazy 'tmux-plugins/vim-tmux', {'on_ft': 'tmux'}
+NeoBundleLazy 'othree/yajs.vim', {'on_ft': 'javascript'}
 NeoBundleLazy 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 NeoBundleLazy 'pangloss/vim-javascript', {'on_ft': 'javascript'}
 NeoBundleLazy 'moll/vim-node', {'on_ft': 'javascript'}
-NeoBundleLazy 'tmux-plugins/vim-tmux', {'on_ft': 'tmux'}
 NeoBundleLazy 'mxw/vim-jsx', {'on_ft': 'javascript'}
 NeoBundleLazy 'ternjs/tern_for_vim', {
   \ 'build': {'others': 'npm install'},

@@ -28,6 +28,20 @@ nnoremap ; :
 vnoremap ; :
 nnoremap : ;
 
+nnoremap <C-S-Tab> :tabprevious<CR>
+nnoremap <C-Tab> :tabnext<CR>
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
+
+nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>w :w<CR>
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
 vnoremap < <gv
 vnoremap > >gv
 
@@ -71,7 +85,6 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " ControlP
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_map = '<C-p>'
 
 " Vim JSX
 let g:jsx_ext_required = 0 " Also format .js files
@@ -79,6 +92,8 @@ let g:jsx_ext_required = 0 " Also format .js files
 " Vim Markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 let g:vim_markdown_folding_disabled = 1
+
+
 autocmd BufRead,BufNewFile *.md setlocal spell
 set complete+=kspell
 
@@ -136,11 +151,11 @@ let g:neomake_error_sign = {
   \ 'texthl': 'ErrorMsg',
   \ }
 
-nmap <Leader><Space>o :lopen<CR>      " open location window
-nmap <Leader><Space>c :lclose<CR>     " close location window
-nmap <Leader><Space>, :ll<CR>         " go to current error/warning
-nmap <Leader><Space>n :lnext<CR>      " next error/warning
-nmap <Leader><Space>p :lprev<CR>      " previous error/warning
+nmap <Leader><Space>o ;lopen<CR>      " open location window
+nmap <Leader><Space>c ;lclose<CR>     " close location window
+nmap <Leader><Space>, ;ll<CR>         " go to current error/warning
+nmap <Leader><Space>n ;lnext<CR>      " next error/warning
+nmap <Leader><Space>p ;lprev<CR>      " previous error/warning
 
 " Git Gutter
 let g:gitgutter_sign_column_always = 1
@@ -161,8 +176,21 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType * autocmd BufWritePre <buffer> ;call <SID>StripTrailingWhitespaces()
 
 " Gist
 let g:gist_open_browser_after_post = 1
 let g:gist_private = 1
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
+" Cycle through location list https://www.reddit.com/r/vim/comments/451q7x/what_are_some_useful_key_mappings_you_would/czus0cf
+" nnoremap <silent> <F1> :try<bar>:try<bar>lnext<bar>catch /^Vim\%((\a\+)\)\=:E553/<bar>lfirst<bar>catch/^Vim\%((\a\+)\)\=:E776/<bar>endtry<bar>catch /^Vim\%((\a\+)\)\=:E42/<bar>endtry<cr>
+" nnoremap <silent> <F2> :try<bar>:try<bar>lprev<bar>catch /^Vim\%((\a\+)\)\=:E553/<bar>llast<bar>catch/^Vim\%((\a\+)\)\=:E776/<bar>endtry<bar>catch /^Vim\%((\a\+)\)\=:E42/<bar>endtry<cr>
+
