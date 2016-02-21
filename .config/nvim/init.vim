@@ -1,6 +1,14 @@
-source $HOME/.config/nvim/bundles.vim
+source $HOME/.config/nvim/bundle.vim
+
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=red
+  autocmd BufEnter * match OverLength /\%81v.*/
+augroup END
 
 let mapleader = "\<Space>"
+
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
 
 " Syntax colorization
 syntax on
@@ -11,34 +19,28 @@ set background=dark
 set ignorecase " When query is lowercase, ignore case
 set smartcase  " When query contains uppercase, pay attention to case
 set number
-set noeol
 set relativenumber
-set expandtab
+set noexpandtab
 set softtabstop=2
 set shiftwidth=2
 set shiftround
 set noswapfile
 set noshowmode " Do not show mode on last line. Airline already does this.
 set laststatus=2
-set omnifunc=csscomplete#CompleteCSS
 set updatetime=250
+set splitbelow
+set splitright
+set cursorline
+set cursorcolumn
+set colorcolumn=80
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-map <C-H> <Nop>
 nnoremap <C-H> <C-W><C-H>
-
-" Remap : -> ;
 nnoremap ; :
 vnoremap ; :
 nnoremap : ;
-
-nnoremap <C-S-Tab> :tabprevious<CR>
-nnoremap <C-Tab> :tabnext<CR>
-nnoremap <Tab> :bn<CR>
-nnoremap <S-Tab> :bp<CR>
-
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 vmap <Leader>y "+y
@@ -47,22 +49,28 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-
 vnoremap < <gv
 vnoremap > >gv
-
 map <C-n> ;nohl<CR>
 map <F5> ;source $MYVIMRC<CR>
 map q: ;q
 
-set cursorline
-set cursorcolumn
-
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%121v.\+/
-set colorcolumn=120
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+augroup end
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern_show_signature_in_pum = 1
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
 \ <SID>check_back_space() ? "\<TAB>" :
 \ neocomplete#start_manual_complete()
@@ -79,15 +87,12 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 " NERD Commenter
-let NERDSpaceDelims=1 " Add space after commentugar pulled from janus... This ensures that it opens in current
-" folder and remembers recent folder and other things that are awkward with
-" basic nerdtree
+let NERDSpaceDelims=1
 
 " Neosnippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-let g:neosnippet#enable_snipmate_compatibility = 1
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " ControlP
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -105,9 +110,12 @@ set complete+=kspell
 
 " Vim Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_tab_nr = 1
 
 " Vim Easy Align
 xmap ga <Plug>(EasyAlign)
@@ -144,7 +152,7 @@ function! NeomakeESlintChecker()
 
   let b:neomake_javascript_eslint_exe = l:eslint
 endfunction
-autocmd FileType javascript :call NeomakeESlintChecker()
+autocmd! BufReadPost FileType javascript :call NeomakeESlintChecker()
 autocmd! BufWritePost,BufReadPost * Neomake
 
 let g:neomake_javascript_enabled_makers = ['eslint']
@@ -188,10 +196,5 @@ autocmd FileType * autocmd BufWritePre <buffer> ;call <SID>StripTrailingWhitespa
 let g:gist_open_browser_after_post = 1
 let g:gist_private = 1
 
-set splitbelow
-set splitright
 
-" Cycle through location list https://www.reddit.com/r/vim/comments/451q7x/what_are_some_useful_key_mappings_you_would/czus0cf
-" nnoremap <silent> <F1> :try<bar>:try<bar>lnext<bar>catch /^Vim\%((\a\+)\)\=:E553/<bar>lfirst<bar>catch/^Vim\%((\a\+)\)\=:E776/<bar>endtry<bar>catch /^Vim\%((\a\+)\)\=:E42/<bar>endtry<cr>
-" nnoremap <silent> <F2> :try<bar>:try<bar>lprev<bar>catch /^Vim\%((\a\+)\)\=:E553/<bar>llast<bar>catch/^Vim\%((\a\+)\)\=:E776/<bar>endtry<bar>catch /^Vim\%((\a\+)\)\=:E42/<bar>endtry<cr>
-
+cabbrev help tab help
