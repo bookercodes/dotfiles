@@ -24,7 +24,7 @@ alias ll="ls -l"
 
 alias j="jump"
 
-alias zshrc="nvim ~/.zshrc"
+alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
 alias nviminit="nvim ~/.config/nvim/"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
@@ -50,7 +50,7 @@ alias nrs="npm run start";
 alias nrb="npm run build";
 alias nrt="npm run test";
 
-alias xres="xrdb ~/.Xresources"
+alias xres="nvim ~./.Xresources && xrdb ~/.Xresources"
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

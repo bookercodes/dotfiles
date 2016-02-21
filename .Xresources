@@ -51,3 +51,4 @@ URxvt.clipboard.copycmd:  xsel -ib
 URxvt.clipboard.pastecmd: xsel -ob
 
 
+XTerm*ptyInitialErase: true
