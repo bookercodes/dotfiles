@@ -52,7 +52,7 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 vnoremap < <gv
 vnoremap > >gv
-map <C-n> ;nohl<CR>
+map <esc> ;nohl<CR>
 map <F5> ;source $MYVIMRC<CR>
 map q: ;q
 
@@ -155,7 +155,7 @@ function! NeomakeESlintChecker()
 endfunction
 autocmd! BufReadPost FileType javascript :call NeomakeESlintChecker()
 autocmd! BufWritePost,BufReadPost * Neomake
-
+let g:neomake_verbose=3
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_warning_sign = {
   \ 'text': 'W',

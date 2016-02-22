@@ -15,7 +15,7 @@ export EDITOR="nvim"
 
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
-alias vi='nvim'
+alias v='nvim'
 
 alias l="ls -lFh"
 alias la="ls -lAFh"
@@ -24,7 +24,7 @@ alias ll="ls -l"
 alias j="jump"
 
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias nviminit="nvim ~/.config/nvim/"
+alias vinit="v ~/.config/nvim/"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 

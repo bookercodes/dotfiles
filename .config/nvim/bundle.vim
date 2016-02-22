@@ -5,6 +5,8 @@ call neobundle#begin(expand('/home/booker/.config/nvim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'ruanyl/vim-fixmyjs'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'othree/es.next.syntax.vim'
