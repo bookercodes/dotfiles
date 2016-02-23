@@ -2,10 +2,8 @@ export ZSH=/home/booker/.oh-my-zsh
 
 ZSH_THEME="blinks"
 COMPLETION_WAITING_DOTS="true"
-ZSH_TMUX_AUTOSTART="true"
-ZSH_TMUX_AUTOQUIT="true"
 
-plugins=(tmux jump)
+plugins=(jump)
 
 export PATH=~/bin:$PATH
 

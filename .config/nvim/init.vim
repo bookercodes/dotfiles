@@ -1,5 +1,8 @@
 source $HOME/.config/nvim/bundle.vim
 
+set clipboard=unnamed
+set clipboard=unnamedplus
+
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=red
   autocmd BufEnter * match OverLength /\%81v.*/
@@ -41,19 +44,18 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap ; :
 vnoremap ; :
 nnoremap : ;
-nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>o :FZF<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
 vnoremap < <gv
 vnoremap > >gv
 map <esc> ;nohl<CR>
-map <F5> ;source $MYVIMRC<CR>
+" map <F5> ;source $MYVIMRC<CR>
+noremap <F5> :update<CR>
+vnoremap <F5> <C-C>:update<CR>
+inoremap <F5> <C-O>:update<CR>
+
 map q: ;q
 
 " Deoplete
@@ -87,16 +89,12 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" NERD Commenter
-let NERDSpaceDelims=1
+vnoremap <c-/> :TComment<cr>
 
 " Neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" ControlP
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Vim JSX
 let g:jsx_ext_required = 0 " Also format .js files
@@ -125,9 +123,6 @@ nmap ga <Plug>(EasyAlign)
 " Tern
 set completeopt-=preview " Stop scratch window opening all the time :@
 
-" Grepper
-nnoremap <leader>g :Grepper -tool git<cr>
-
 " Rainbow
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -153,9 +148,10 @@ function! NeomakeESlintChecker()
 
   let b:neomake_javascript_eslint_exe = l:eslint
 endfunction
-autocmd! BufReadPost FileType javascript :call NeomakeESlintChecker()
+autocmd FileType javascript :call NeomakeESlintChecker()
+
 autocmd! BufWritePost,BufReadPost * Neomake
-let g:neomake_verbose=3
+" let g:neomake_verbose=3
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_warning_sign = {
   \ 'text': 'W',
@@ -197,5 +193,12 @@ autocmd FileType * autocmd BufWritePre <buffer> ;call <SID>StripTrailingWhitespa
 let g:gist_open_browser_after_post = 1
 let g:gist_private = 1
 
-
 cabbrev help tab help
+set undodir=$HOME/.VIM_UNDO_FILES
+set undolevels=5000
+set undofile
+
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'

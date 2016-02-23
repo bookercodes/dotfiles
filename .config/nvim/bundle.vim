@@ -5,8 +5,10 @@ call neobundle#begin(expand('/home/booker/.config/nvim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'maksimr/vim-jsbeautify'
-NeoBundle 'ruanyl/vim-fixmyjs'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf' }
+NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'alexbooker/vim-eslint-fix'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'othree/es.next.syntax.vim'
@@ -28,13 +30,12 @@ NeoBundle 'Shougo/neosnippet.vim', {
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'mhinz/vim-grepper'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'benekastah/neomake'
