@@ -2,13 +2,15 @@ source $HOME/.config/nvim/bundle.vim
 
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=red
-  autocmd BufEnter * match OverLength /\%81v.*/
+  autocmd BufEnter * match OverLength /\%106v.*/
 augroup END
 
 let mapleader = "\<Space>"
 
+nnoremap <C-w> :bd<CR>
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
+nnoremap <F1> :EsLintFix<CR>
 
 " Syntax colorization
 syntax on
@@ -130,6 +132,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 "
 " Vim Easy Align
 xmap ga <Plug>(EasyAlign)
@@ -137,12 +140,6 @@ nmap ga <Plug>(EasyAlign)
 
 " Tern
 set completeopt-=preview " Stop scratch window opening all the time :@
-
-" Rainbow
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 " Vim expand region
 vmap v <Plug>(expand_region_expand)
@@ -192,7 +189,7 @@ let g:gist_private = 1
 
 cabbrev help tab help
 
-set undodir=$HOME/.VIM_UNDO_FILES
+set undodir=~/.config/nvim/undodir
 set undolevels=100
 set undofile
 
@@ -206,6 +203,9 @@ nmap Y <Plug>(operator-flashy)$
 hi Flashy ctermbg=magenta
 autocmd BufWritePre * StripWhitespace
 
+highlight Error ctermfg=15
+highlight Error ctermbg=black
+
 " camelCase motion settings
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -213,3 +213,4 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
+
