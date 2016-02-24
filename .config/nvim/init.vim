@@ -1,8 +1,5 @@
 source $HOME/.config/nvim/bundle.vim
 
-set clipboard=unnamed
-set clipboard=unnamedplus
-
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=red
   autocmd BufEnter * match OverLength /\%81v.*/
@@ -19,14 +16,11 @@ colorscheme base16-gooey
 let base16colorspace=256
 set background=dark
 
+set showcmd
 set ignorecase " When query is lowercase, ignore case
 set smartcase  " When query contains uppercase, pay attention to case
 set number
 set relativenumber
-set noexpandtab
-set softtabstop=2
-set shiftwidth=2
-set shiftround
 set noswapfile
 set noshowmode " Do not show mode on last line. Airline already does this.
 set laststatus=2
@@ -35,7 +29,15 @@ set splitbelow
 set splitright
 set cursorline
 set cursorcolumn
-set colorcolumn=80
+set colorcolumn=105
+
+set tabstop=2
+set softtabstop=2
+set expandtab
+set smarttab
+set shiftwidth=2
+set autoindent
+set smartindent
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -46,16 +48,19 @@ vnoremap ; :
 nnoremap : ;
 nnoremap <Leader>o :FZF<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
+" nnoremap <leader>d "_d
+" vnoremap <leader>d "_d
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
 vnoremap < <gv
 vnoremap > >gv
 map <esc> ;nohl<CR>
-" map <F5> ;source $MYVIMRC<CR>
-noremap <F5> :update<CR>
-vnoremap <F5> <C-C>:update<CR>
-inoremap <F5> <C-O>:update<CR>
 
+map <F5> ;source $MYVIMRC<CR>
 map q: ;q
 
 " Deoplete
@@ -89,7 +94,9 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-vnoremap <c-/> :TComment<cr>
+nnoremap <Leader>c :TComment<cr>
+vnoremap <Leader>c :TComment<cr>
+nnoremap <Leader>c :TComment<cr>
 
 " Neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -100,22 +107,30 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 let g:jsx_ext_required = 0 " Also format .js files
 
 " Vim Markdown
-au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.md setlocal textwidth=120
 let g:vim_markdown_folding_disabled = 1
 
 
 autocmd BufRead,BufNewFile *.md setlocal spell
 set complete+=kspell
+" All status line configuration goes here
+
+set cmdheight=2
+set display+=lastline
+
+" general config
+set laststatus=2 " always show status line
+set showtabline=2 " always show tabline
+set noshowmode " hide default mode text (e.g. INSERT) as airline already displays it
 
 " Vim Airline
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_tab_nr = 1
-
+"
 " Vim Easy Align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -171,34 +186,30 @@ nmap <Leader><Space>p ;lprev<CR>      " previous error/warning
 " Git Gutter
 let g:gitgutter_sign_column_always = 1
 
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
-" start: automatically trim trailing whitespace
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-
-autocmd FileType * autocmd BufWritePre <buffer> ;call <SID>StripTrailingWhitespaces()
-
 " Gist
 let g:gist_open_browser_after_post = 1
 let g:gist_private = 1
 
 cabbrev help tab help
+
 set undodir=$HOME/.VIM_UNDO_FILES
-set undolevels=5000
+set undolevels=100
 set undofile
 
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
+
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
+hi Flashy ctermbg=magenta
+autocmd BufWritePre * StripWhitespace
+
+" camelCase motion settings
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
