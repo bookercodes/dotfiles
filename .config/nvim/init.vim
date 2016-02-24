@@ -5,6 +5,7 @@ augroup vimrc_autocmds
   autocmd BufEnter * match OverLength /\%106v.*/
 augroup END
 
+set list listchars=tab:»·,trail:·,nbsp:·
 let mapleader = "\<Space>"
 
 nnoremap <C-w> :bd<CR>
@@ -214,3 +215,13 @@ sunmap w
 sunmap b
 sunmap e
 
+au FocusGained,BufEnter * :silent! !
+autocmd BufEnter * silent! cd %:p:h
+au FocusLost,WinLeave * :silent! wa
+
+"Use enter to create new lines w/o entering insert mode
+nnoremap <CR> o<Esc>
+"Below is to fix issues with the ABOVE mappings in quickfix window
+" autocmd CmdwinEnter * nnoremap <CR> <CR>
+" autocmd BufReadPost quickfix nnoremap <CR> <CR>
+autocmd VimResized * :wincmd =
