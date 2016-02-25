@@ -22,7 +22,7 @@ alias ll="ls -l"
 alias j="jump"
 
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias vinit="v ~/.config/nvim/init.vim ~/.config/nvim/bundle.vim"
+alias vinit="v ~/.config/nvim/config/config.vim ~/.config/nvim/config/bundle.vim"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 
