@@ -5,16 +5,6 @@ call neobundle#begin(expand('/home/booker/.config/nvim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'vim-scripts/camelcasemotion'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'alexbooker/vim-eslint-fix'
-NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'haya14busa/vim-operator-flashy', {
-  \ 'depends': ['kana/vim-operator-user']
-  \}
-
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mxw/vim-jsx'
@@ -51,6 +41,18 @@ NeoBundle 'rcmdnk/vim-markdown', {
 NeoBundle 'mattn/gist-vim', {
   \ 'depends': 'mattn/webapi-vim'
   \ }
+
+" Experimental
+NeoBundle 'vim-scripts/camelcasemotion'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'alexbooker/vim-eslint-fix'
+NeoBundle 'terryma/vim-expand-region'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'haya14busa/vim-operator-flashy', {
+  \ 'depends': ['kana/vim-operator-user']
+  \}
+
 
 call neobundle#end()
 filetype plugin indent on
