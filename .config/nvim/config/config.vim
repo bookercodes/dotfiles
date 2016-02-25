@@ -11,7 +11,7 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 
-" Searching case sensitivity
+" Search case sensitivity
 set ignorecase
 set smartcase
 
@@ -30,7 +30,7 @@ set cursorcolumn
 " Disable swap file
 set noswapfile
 
-" Ruler
+" Show ruler
 set colorcolumn=105
 
 " Remember undo tree
@@ -43,11 +43,11 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Automatically reload file on focus
-au FocusGained,BufEnter * :silent! !
-
-" Automatically save file on focus lost
+" Automatically write on focus lost
 au FocusLost,WinLeave * :silent! wa
+
+" Automatically read on focus gained
+au FocusGained,BufEnter * :silent! !
 
 " Ensure splits have equal width after resize
 au VimResized * :wincmd =
@@ -63,7 +63,11 @@ nnoremap ; :
 vnoremap ; :
 nnoremap : ;
 
-" Convinent key-bindings for accessing the system clipboard (+ register)
+" Recursively reselect indented text
+vnoremap < <gv
+vnoremap > >gv
+
+" Convinent key-bindings for accessing the sys clipboard
 v map <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
@@ -71,29 +75,29 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-" Convinent FireFox-like key-bindings for switching and closing buffers
+" Convinent key-bindings for switching and closing buffers
 nnoremap <C-w> :bd<CR>
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 
-" Convinent key-binding for writing file
+" Convinent key-binding to write file
 nnoremap <Leader>w :w<CR>
-
-" Recursively reselect indented text so it can be indented again more easily
-vnoremap < <gv
-vnoremap > >gv
 
 " Convinent key-binding to reload init.vim
 map <F5> ;source $MYVIMRC<CR>
 
-" Convinent key-binding to remove search highlighting
+" Convinent key-binding to remove search matches highlighting
 map <esc> ;nohl<CR>
+
+" Convinent key-binding to create a new line in normal mode
+nnoremap <CR> o<Esc>
 
 " When in Ex Mode, automatically expand 'help' to 'tab help'
 cabbrev help tab help
 
-"Use enter to create new lines w/o entering insert mode
-nnoremap <CR> o<Esc>
+"......................................................................................................
+"......................................................................................................
+"... Bundles
 
 " scrooloose/nerdtree
 nmap <Leader>f ;NERDTreeToggle<Enter>
@@ -140,10 +144,8 @@ function! NeomakeESlintChecker()
   endif
   let b:neomake_javascript_eslint_exe = l:eslint
 endfunction
-
 autocmd FileType javascript :call NeomakeESlintChecker()
 autocmd! BufWritePost,BufReadPost * Neomake
-
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_warning_sign = {
   \ 'text': 'W',
