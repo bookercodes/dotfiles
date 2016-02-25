@@ -11,7 +11,7 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 
-" Search case sensitivity
+" Case sensitivity for search
 set ignorecase
 set smartcase
 
@@ -30,8 +30,11 @@ set cursorcolumn
 " Disable swap file
 set noswapfile
 
-" Show ruler
+" Show column guide
 set colorcolumn=105
+
+" Do not highlight code longer than column guide
+set synmaxcol=105
 
 " Remember undo tree
 set undodir=~/.config/nvim/undodir
@@ -49,7 +52,7 @@ au FocusLost,WinLeave * :silent! wa
 " Automatically read on focus gained
 au FocusGained,BufEnter * :silent! !
 
-" Ensure splits have equal width after resize
+" Ensure splits have equal width on resize
 au VimResized * :wincmd =
 
 " Disable automatic comment insertion
@@ -68,7 +71,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Convinent key-bindings for accessing the sys clipboard
-v map <Leader>y "+y
+vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
@@ -92,8 +95,15 @@ map <esc> ;nohl<CR>
 " Convinent key-binding to create a new line in normal mode
 nnoremap <CR> o<Esc>
 
-" When in Ex Mode, automatically expand 'help' to 'tab help'
+" When entering command, automatically expand 'help' to 'tab help'
 cabbrev help tab help
+
+" Disable Ex Mode key-binding
+noremap Q <NOP>
+
+" Quicker scrolling
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
 "......................................................................................................
 "......................................................................................................
@@ -216,3 +226,4 @@ function! s:check_back_space() "{{{
 let col = col('.') - 1
 return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
+
