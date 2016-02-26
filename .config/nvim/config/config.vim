@@ -41,6 +41,9 @@ set undodir=~/.config/nvim/undodir
 set undolevels=100
 set undofile
 
+" Automatically source init.vim
+autocmd! bufwritepost config.vim,bundle.vim source $MYVIMRC
+
 " Remember cursor position
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -57,6 +60,9 @@ au VimResized * :wincmd =
 
 " Disable automatic comment insertion
 au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Enable spell check for markdown files
+autocmd BufRead,BufNewFile *.md setlocal spell
 
 " Leader key
 let mapleader = "\<Space>"
@@ -115,11 +121,6 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-
-" tomtom/tcomment_vim
-nnoremap <Leader>c :TComment<cr>
-vnoremap <Leader>c :TComment<cr>
-nnoremap <Leader>c :TComment<cr>
 
 " mxw/vim-jsx
 let g:jsx_ext_required = 0
@@ -227,3 +228,8 @@ let col = col('.') - 1
 return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
 
+" dhruvasagar/vim-table-mode
+let g:table_mode_corner="|"
+
+" rcmdnk/vim-markdown
+let g:vim_markdown_folding_disabled = 1

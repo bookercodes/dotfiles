@@ -50,3 +50,4 @@ URxvt.perl-ext-common: ...,resize-font,fullscreen,...
 URxvt.keysym.F11: perl:fullscreen:switch
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
+URxvt.letterSpace: -1

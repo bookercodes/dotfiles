@@ -23,7 +23,7 @@ NeoBundle 'Shougo/neosnippet.vim', {
   \ 'depends': ['Shougo/neosnippet-snippets'],
   \ }
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-commentary'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
@@ -48,7 +48,10 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'alexbooker/vim-eslint-fix'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'vim-scripts/ReplaceWithRegister'
 NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'dhruvasagar/vim-table-mode'
+NeoBundle 'shime/vim-livedown'
 NeoBundle 'haya14busa/vim-operator-flashy', {
   \ 'depends': ['kana/vim-operator-user']
   \}
