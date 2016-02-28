@@ -64,6 +64,12 @@ au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Enable spell check for markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
 
+" Omnifunc
+augroup omnifuncs
+  autocmd!
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+augroup end
+
 " Leader key
 let mapleader = "\<Space>"
 
@@ -115,12 +121,12 @@ nnoremap <C-y> 3<C-y>
 "......................................................................................................
 "... Bundles
 
-" scrooloose/nerdtree
-nmap <Leader>f ;NERDTreeToggle<Enter>
-let NERDTreeQuitOnOpen = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+" " scrooloose/nerdtree
+" nmap <Leader>f ;NERDTreeToggle<Enter>
+" let NERDTreeQuitOnOpen = 1
+" let NERDTreeAutoDeleteBuffer = 1
+" let NERDTreeMinimalUI = 1
+" let NERDTreeDirArrows = 1
 
 " mxw/vim-jsx
 let g:jsx_ext_required = 0
@@ -137,6 +143,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " ternjs/tern_for_vim
+let g:tern_show_argument_hints = 'on_move'
+let g:tern_show_signature_in_pum = 1
 set completeopt-=preview
 
 " terryma/vim-expand-region
@@ -203,30 +211,18 @@ nnoremap <Leader>o :GitFiles<CR>
 " Shougo/neosnippet.vim
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+" xmap <C-k> <Plug>(neosnippet_expand_target)
+xmap <C-k> <Plug>(neosnippet_expand)
+let g:neosnippet#disable_runtime_snippets = { '_': 1 }
+let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
 
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
+let g:deoplete#auto_completion_start_length=1
+" if !exists('g:deoplete#omni#input_patterns')
+"   let g:deoplete#omni#input_patterns = {}
+" endif
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-augroup end
-let g:tern_show_argument_hints = 'on_hold'
-let g:tern_show_signature_in_pum = 1
-autocmd FileType javascript setlocal omnifunc=tern#Complete
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-\ <SID>check_back_space() ? "\<TAB>" :
-\ neocomplete#start_manual_complete()
-function! s:check_back_space() "{{{
-let col = col('.') - 1
-return !col || getline('.')[col - 1] =~ '\s'
-endfunction"}}}
 
 " dhruvasagar/vim-table-mode
 let g:table_mode_corner="|"

@@ -19,18 +19,18 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'wellle/tmux-complete.vim'
-NeoBundle 'Shougo/neosnippet.vim', {
-  \ 'depends': ['Shougo/neosnippet-snippets'],
-  \ }
+NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-commentary'
-NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'benekastah/neomake'
-NeoBundle 'Shougo/deoplete.nvim'
+NeoBundle 'Shougo/deoplete.nvim', {
+  \ 'depends': ['Shougo/context_filetype.vim'],
+  \ }
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'vim-airline/vim-airline', {
   \ 'depends': ['tpope/vim-fugitive']
@@ -52,6 +52,7 @@ NeoBundle 'vim-scripts/ReplaceWithRegister'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'shime/vim-livedown'
+NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'haya14busa/vim-operator-flashy', {
   \ 'depends': ['kana/vim-operator-user']
   \}
