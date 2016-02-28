@@ -64,6 +64,6 @@ if ask "Install symlink for .scripts?" Y; then
   ln -sfn ${dir}/.scripts ${HOME}/.scripts
 fi
 
-if ask "Install symlink for .i3?" Y; then
-  ln -sfn ${dir}/.i3 ${HOME}/.i3
+if ask "Install symlink for i3?" Y; then
+  ln -sfn ${dir}/.config/i3 ${HOME}/.config/i3
 fi

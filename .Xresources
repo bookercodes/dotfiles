@@ -1,5 +1,5 @@
 URxvt.scrollBar:      false
-URxvt.font:           xft:PragmataPro:size=12
+URxvt.font:           xft:Hack:size=12
 URxvt.url-launcher:   /usr/bin/firefox
 URxvt*loginShell:     true
 URxvt*fading:         30
