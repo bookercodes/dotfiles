@@ -71,7 +71,7 @@
 
 # Program-Related Bindings
   bindsym $mod+Shift+f exec chromium
-  bindsym $mod+Return exec i3-sensible-terminal
+  bindsym $mod+Return exec urxvt
   bindsym $mod+d exec rofi -show run
   bindsym --release Print exec imgur-screenshot
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"

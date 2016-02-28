@@ -49,8 +49,10 @@ fi
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+setxkbmap gb
 setxkbmap -option caps:swapescape &
+pulseaudio --start &
 ~/.screenlayout/default.sh &
-feh --bg-fill ~/Pictures/wallpaper.jpg
+feh --bg-fill ~/Pictures/wallpaper.png
 
 exec i3
