@@ -51,8 +51,10 @@ export SSH_AUTH_SOCK
 
 setxkbmap gb
 setxkbmap -option caps:swapescape &
-pulseaudio --start &
-~/.screenlayout/default.sh &
+pulseaudio --start                &
+dropbox                           &
+nm-applet                         &
+~/.screenlayout/default.sh        &
 feh --bg-fill ~/Pictures/wallpaper.png
 
 exec i3

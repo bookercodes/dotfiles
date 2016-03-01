@@ -38,6 +38,7 @@ alias nig="npm i -g "
 alias nrs="npm run start";
 alias nrb="npm run build";
 alias nrt="npm run test";
+alias nrc="npm run commit";
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

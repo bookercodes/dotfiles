@@ -91,7 +91,7 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " Convinent key-bindings for switching and closing buffers
-nnoremap <C-w> :bd<CR>
+" nnoremap <C-w> :bd<CR>
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 
@@ -132,10 +132,9 @@ nnoremap <C-y> 3<C-y>
 let g:jsx_ext_required = 0
 
 " vim-airline/vim-airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline_powerline_fonts = 1
+
+" let g:airline#extensions#tabline#fnamemod = ':t'
 set noshowmode
 
 " junegunn/vim-easy-align

@@ -18,7 +18,7 @@
   set $base0E #c0b7f9
   set $base0F #fcc09e
 
-  set $workspace1 "1: "
+  set $workspace1 "1: "
   set $workspace2 "2: "
   set $workspace3 "3: "
   set $workspace4 "4: "
@@ -29,8 +29,8 @@
   set $workspace9 "9: "
   set $workspace10 "10: "
 
-  set $monitor1 "DVI-I-2"
-  set $monitor2 "DVI-I-3"
+  set $monitor1 "DVI-I-1"
+  set $monitor2 "HDMI-0"
 
 # General Configuration
   font pango:System San Francisco Display 10
@@ -55,7 +55,7 @@
   bindsym $mod+f fullscreen toggl
   bindsym $mod+v layout toggle split
   #bindsym $mod+h split h
-  #bindsym $mod+space focus mode_toggle
+  bindsym $mod+space focus mode_toggle
   bindsym $mod+r mode "  "
   mode "  " {
     bindsym h resize shrink width 10 px or 10 ppt
@@ -70,10 +70,10 @@
   bindsym $mod+Shift+r restart
 
 # Program-Related Bindings
-  bindsym $mod+Shift+f exec chromium
-  bindsym $mod+Return exec urxvt
+  bindsym $mod+Shift+f exec firefox
+  bindsym $mod+Return exec i3-sensible-terminal
   bindsym $mod+d exec rofi -show run
-  bindsym --release Print exec imgur-screenshot
+  # bindsym --release Print exec imgur-screenshot
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Volume & Media Bindings
@@ -84,12 +84,6 @@
   bindsym XF86AudioPause exec playerctl pause
   bindsym XF86AudioNext exec playerctl next
   bindsym XF86AudioPrev exec playerctl previous
-
-# Startup Programs
-  exec --no-startup-id nm-applet
-  exec --no-startup-id dunst
-  exec --no-startup-id dropbox
-  exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
 
 # Workspace-Related Bindings
   bindsym $mod+1 workspace $workspace1
@@ -145,7 +139,7 @@
     font pango: System San Francisco Display, FontAwesome 11
     status_command i3blocks
     position bottom
-    strip_workspace_numbers yes
+    # strip_workspace_numbers yes
     height 25
     bindsym button4 nop
     bindsym button5 nop

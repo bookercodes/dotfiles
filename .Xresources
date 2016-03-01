@@ -1,5 +1,12 @@
+! better font rendering
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+
 URxvt.scrollBar:      false
-URxvt.font:           xft:Hack:size=12
+URxvt.font:           xft:Hack:size=13
 URxvt.url-launcher:   /usr/bin/firefox
 URxvt*loginShell:     true
 URxvt*fading:         30
@@ -46,7 +53,7 @@ URxvt.perl-ext: default,url-select
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
-URxvt.perl-ext-common: ...,resize-font,fullscreen,...
+URxvt.perl-ext-common: ...,resize-font,url-select,fullscreen,...
 URxvt.keysym.F11: perl:fullscreen:switch
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
