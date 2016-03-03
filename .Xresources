@@ -5,6 +5,8 @@ Xft.rgba: rgb
 Xft.hinting: true
 Xft.hintstyle: hintslight
 
+URxvt.iso14755: False
+URxvt.iso14755_52: False
 URxvt.scrollBar:      false
 URxvt.font:           xft:PragmataPro:size=13
 URxvt.url-launcher:   /usr/bin/firefox

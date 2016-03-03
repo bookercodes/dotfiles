@@ -43,6 +43,7 @@ NeoBundle 'mattn/gist-vim', {
   \ }
 
 " Experimental
+NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-scripts/camelcasemotion'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'alexbooker/vim-eslint-fix'
