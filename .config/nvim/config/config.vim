@@ -122,11 +122,11 @@ nnoremap <C-y> 3<C-y>
 "... Bundles
 
 " " scrooloose/nerdtree
-" nmap <Leader>f ;NERDTreeToggle<Enter>
-" let NERDTreeQuitOnOpen = 1
-" let NERDTreeAutoDeleteBuffer = 1
-" let NERDTreeMinimalUI = 1
-" let NERDTreeDirArrows = 1
+nmap <Leader>f ;NERDTreeToggle<Enter>
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " mxw/vim-jsx
 let g:jsx_ext_required = 0
