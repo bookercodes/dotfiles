@@ -5,7 +5,11 @@ antigen use oh-my-zsh
 antigen bundle jump
 antigen bundle command-not-found
 
-antigen theme blinks
+# antigen theme norm
+# antigen theme suvash
+# antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+antigen theme https://github.com/halfo/lambda-mod-zsh-theme lambda-mod
+
 
 antigen apply
 

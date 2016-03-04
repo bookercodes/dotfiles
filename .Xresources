@@ -1,62 +1,49 @@
-! better font rendering
-Xft.dpi: 96
-Xft.antialias: true
-Xft.rgba: rgb
-Xft.hinting: true
-Xft.hintstyle: hintslight
+URxvt.font:                xft:PragmataPro:size=14
+URxvt.boldFont:            xft:PragmataPro:size=14:bold
+URxvt.italicFont:          xft:PragmataPro:size=14:italic
+URxvt.boldItalicFont:      xft:PragmataPro:size=14:bold:italic
+URxvt.letterSpace:         -1
 
-URxvt.iso14755: False
-URxvt.iso14755_52: False
-URxvt.scrollBar:      false
-URxvt.font:           xft:PragmataPro:size=13
-URxvt.url-launcher:   /usr/bin/firefox
-URxvt*loginShell:     true
-URxvt*fading:         30
-URxvt.internalBorder: 0
-URxvt.externalBorder: 0
+URxvt*color0:              #101218
+URxvt*color1:              #ee829f
+URxvt*color2:              #a5ffe1
+URxvt*color3:              #ffefcc
+URxvt*color4:              #97bbf7
+URxvt*color5:              #c0b7f9
+URxvt*color6:              #97e0ff
+URxvt*color7:              #d1d4e0
+URxvt*color8:              #7780a1
+URxvt*color9:              #ee829f
+URxvt*color10:             #a5ffe1
+URxvt*color11:             #ffefcc
+URxvt*color12:             #97bbf7
+URxvt*color13:             #c0b7f9
+URxvt*color14:             #97e0ff
+URxvt*color15:             #ffffff
+URxvt*color16:             #f99170
+URxvt*color17:             #fcc09e
+URxvt*color18:             #1f222d
+URxvt*color19:             #252936
+URxvt*color20:             #C0C5CE
+URxvt*color21:             #C9CCDB
+URxvt*background:          #101218
+URxvt*foreground:          #E6EFF7
+URxvt*cursorColor:         #E6EFF7
 
-URxvt.secondaryScreen: 1
-URxvt.secondaryScroll: 0
+URxvt.internalBorder:      6
+URxvt.externalBorder:      0
 
-URxvt.depth: 32
+URxvt.scrollBar:           false
 
-URxvt*background:                     #101218
-URxvt*foreground:                     #d1d4e0
-URxvt*cursorColor:                    #d1d4e0
-URxvt*scrollColor:                    #d1d4e0
-URxvt*highlightColor:                 #1f222d
-URxvt*highlightTextColor:             #C0C5CE
+URxvt*fading:              30
 
-URxvt*color0:                         #101218
-URxvt*color1:                         #ee829f
-URxvt*color2:                         #a5ffe1
-URxvt*color3:                         #ffefcc
-URxvt*color4:                         #97bbf7
-URxvt*color5:                         #c0b7f9
-URxvt*color6:                         #97e0ff
-URxvt*color7:                         #d1d4e0
-URxvt*color8:                         #7780a1
-URxvt*color9:                         #ee829f
-URxvt*color10:                        #a5ffe1
-URxvt*color11:                        #ffefcc
-URxvt*color12:                        #97bbf7
-URxvt*color13:                        #c0b7f9
-URxvt*color14:                        #97e0ff
-URxvt*color15:                        #ffffff
+URxvt.perl-ext-common:     default,matcher,resize-font,fullscreen
 
-URxvt*color16:                        #f99170
-URxvt*color17:                        #fcc09e
-URxvt*color18:                        #1f222d
-URxvt*color19:                        #252936
-URxvt*color20:                        #C0C5CE
-URxvt*color21:                        #C9CCDB
+URxvt.keysym.F11:          perl:fullscreen:switch
 
-URxvt.perl-ext: default,url-select
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/xdg-open
-URxvt.url-select.underline: true
-URxvt.perl-ext-common: ...,resize-font,url-select,fullscreen,...
-URxvt.keysym.F11: perl:fullscreen:switch
 URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger: C-Up
-URxvt.letterSpace: -1
+URxvt.resize-font.bigger:  C-Up
+
+URxvt.url-launcher:        /usr/bin/chromium
+URxvt.keysym.M-Delete:     perl:matcher:list
+URxvt.colorUL:             #7780a1
