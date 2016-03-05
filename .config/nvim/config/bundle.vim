@@ -19,7 +19,6 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'wellle/tmux-complete.vim'
-NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'scrooloose/nerdtree'
@@ -28,9 +27,6 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'benekastah/neomake'
-NeoBundle 'Shougo/deoplete.nvim', {
-  \ 'depends': ['Shougo/context_filetype.vim'],
-  \ }
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'vim-airline/vim-airline', {
   \ 'depends': ['tpope/vim-fugitive']
@@ -43,6 +39,8 @@ NeoBundle 'mattn/gist-vim', {
   \ }
 
 " Experimental
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-scripts/camelcasemotion'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -57,7 +55,6 @@ NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'haya14busa/vim-operator-flashy', {
   \ 'depends': ['kana/vim-operator-user']
   \}
-
 
 call neobundle#end()
 filetype plugin indent on

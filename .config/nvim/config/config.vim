@@ -215,16 +215,14 @@ xmap <C-k> <Plug>(neosnippet_expand)
 let g:neosnippet#disable_runtime_snippets = { '_': 1 }
 let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
 
-" Shougo/deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_completion_start_length=1
-" if !exists('g:deoplete#omni#input_patterns')
-"   let g:deoplete#omni#input_patterns = {}
-" endif
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
 " dhruvasagar/vim-table-mode
 let g:table_mode_corner="|"
 
 " rcmdnk/vim-markdown
 let g:vim_markdown_folding_disabled = 1
+
+" SirVer/ultisnips
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
+let g:UltiSnipsSnippetDirectories=['custom-snippets']
