@@ -31,10 +31,13 @@ set cursorcolumn
 set noswapfile
 
 " Show column guide
-set colorcolumn=105
+set colorcolumn=95
 
 " Do not highlight code longer than column guide
-set synmaxcol=105
+set synmaxcol=95
+
+" Disable welcome message
+set shortmess=atTiOI
 
 " Remember undo tree
 set undodir=~/.config/nvim/undodir
@@ -117,11 +120,10 @@ noremap Q <NOP>
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-"......................................................................................................
-"......................................................................................................
-"... Bundles
+" ..........................................................
+" ...................................................Plugins
 
-" " scrooloose/nerdtree
+" scrooloose/nerdtree
 nmap <Leader>f ;NERDTreeToggle<Enter>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
@@ -131,11 +133,61 @@ let NERDTreeDirArrows = 1
 " mxw/vim-jsx
 let g:jsx_ext_required = 0
 
-" vim-airline/vim-airline
-let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline#extensions#tabline#enabled = 1
+" itchyny/lightline
+set laststatus=2
 set noshowmode
+let g:lightline = {
+  \ 'colorscheme': 'quack',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'fugitive'],[ 'filename' ] ]
+  \ },
+  \ 'component_function': {
+  \   'fugitive': 'LLFugitive',
+  \   'readonly': 'LLReadonly',
+  \   'modified': 'LLModified',
+  \   'filename': 'LLFilename',
+  \   'mode': 'LLMode'
+  \ } }
+function! LLMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+    \ fname == 'ControlP' ? 'CtrlP' :
+    \ lightline#mode() == 'NORMAL' ? 'N' :
+    \ lightline#mode() == 'INSERT' ? 'I' :
+    \ lightline#mode() == 'VISUAL' ? 'V' :
+    \ lightline#mode() == 'V-LINE' ? 'V' :
+    \ lightline#mode() == 'V-BLOCK' ? 'V' :
+    \ lightline#mode() == 'REPLACE' ? 'R' : lightline#mode()
+endfunction
+function! LLModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+function! LLReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "!"
+  else
+    return ""
+  endif
+endfunction
+function! LLFugitive()
+  return exists('*fugitive#head') ? ' ' . fugitive#head() : ''
+endfunction
+function! LLFilename()
+  return ('' != LLReadonly() ? LLReadonly() . ' ' : '') .
+   \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+   \ ('' != LLModified() ? ' ' . LLModified() : '')
+endfunction
 
 " junegunn/vim-easy-align
 xmap ga <Plug>(EasyAlign)
@@ -182,12 +234,6 @@ set updatetime=250
 let g:gist_open_browser_after_post = 1
 let g:gist_private = 1
 
-" terryma/vim-multiple-cursors
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
 " haya14busa/vim-operator-flashy
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
@@ -206,14 +252,6 @@ sunmap e
 
 " junegunn/fzf
 nnoremap <Leader>o :GitFiles<CR>
-
-" Shougo/neosnippet.vim
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k> <Plug>(neosnippet_expand_target)
-xmap <C-k> <Plug>(neosnippet_expand)
-let g:neosnippet#disable_runtime_snippets = { '_': 1 }
-let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
 
 " dhruvasagar/vim-table-mode
 let g:table_mode_corner="|"

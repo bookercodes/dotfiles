@@ -30,7 +30,7 @@ URxvt*background:          #101218
 URxvt*foreground:          #E6EFF7
 URxvt*cursorColor:         #E6EFF7
 
-URxvt.internalBorder:      6
+URxvt.internalBorder:      0
 URxvt.externalBorder:      0
 
 URxvt.scrollBar:           false

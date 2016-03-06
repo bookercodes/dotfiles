@@ -5,13 +5,8 @@ call neobundle#begin(expand('/home/booker/.config/nvim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mxw/vim-jsx'
-NeoBundle 'ternjs/tern_for_vim', {
-  \ 'build': {'others': 'npm install'},
-  \ 'disabled': ! executable('npm'),
-  \ }
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf' }
 NeoBundle 'junegunn/fzf.vim'
@@ -27,10 +22,10 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'benekastah/neomake'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'vim-airline/vim-airline', {
-  \ 'depends': ['tpope/vim-fugitive']
-  \}
+NeoBundle 'ternjs/tern_for_vim', {
+  \ 'build': {'others': 'npm install'},
+  \ 'disabled': ! executable('npm'),
+  \ }
 NeoBundle 'rcmdnk/vim-markdown', {
   \ 'depends': ['godlygeek/tabular'],
   \ }
@@ -38,17 +33,21 @@ NeoBundle 'mattn/gist-vim', {
   \ 'depends': 'mattn/webapi-vim'
   \ }
 
-" Experimental
+NeoBundle 'othree/es.next.syntax.vim', {'on_ft': ['javascript', 'javascript.jsx']}
+NeoBundle 'othree/yajs.vim', {'on_ft': ['javascript', 'javascript.jsx']}
+NeoBundle 'gavocanov/vim-js-indent', {'on_ft': ['javascript', 'javascript.jsx']}
+
+NeoBundle 'pearofducks/vim-quack-lightline'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-scripts/camelcasemotion'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'alexbooker/vim-eslint-fix'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'vim-scripts/ReplaceWithRegister'
-NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'shime/vim-livedown'
 NeoBundle 'tpope/vim-vinegar'

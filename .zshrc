@@ -13,6 +13,7 @@ antigen theme https://github.com/halfo/lambda-mod-zsh-theme lambda-mod
 
 antigen apply
 
+alias ya="yaourt --nameonly --pager --color $1"
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 alias v='nvim'
