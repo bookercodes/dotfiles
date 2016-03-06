@@ -263,4 +263,4 @@ let g:vim_markdown_folding_disabled = 1
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
-let g:UltiSnipsSnippetDirectories=['custom-snippets']
+let g:UltiSnipsSnippetDirectories=['snips']
