@@ -67,6 +67,12 @@ au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Enable spell check for markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
 
+" Close quick fix window automatically
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+aug END
+
 " Omnifunc
 augroup omnifuncs
   autocmd!
@@ -110,15 +116,15 @@ map <esc> ;nohl<CR>
 " Convinent key-binding to create a new line in normal mode
 nnoremap <CR> o<Esc>
 
-" When entering command, automatically expand 'help' to 'tab help'
-cabbrev help tab help
-
 " Disable Ex Mode key-binding
 noremap Q <NOP>
 
 " Quicker scrolling
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
+nnoremap <C-e> 6<C-e>
+nnoremap <C-y> 6<C-y>
+
+" Fix trivial ESLint errors
+map <F3> ;EsLintFix<CR>;Neomake<CR>
 
 " ..........................................................
 " ...................................................Plugins
@@ -153,12 +159,12 @@ function! LLMode()
   let fname = expand('%:t')
   return fname == '__Tagbar__' ? 'Tagbar' :
     \ fname == 'ControlP' ? 'CtrlP' :
-    \ lightline#mode() == 'NORMAL' ? 'N' :
-    \ lightline#mode() == 'INSERT' ? 'I' :
-    \ lightline#mode() == 'VISUAL' ? 'V' :
-    \ lightline#mode() == 'V-LINE' ? 'V' :
-    \ lightline#mode() == 'V-BLOCK' ? 'V' :
-    \ lightline#mode() == 'REPLACE' ? 'R' : lightline#mode()
+    \ lightline#mode() == 'NORMAL' ? 'Normal mode' :
+    \ lightline#mode() == 'INSERT' ? 'Insert mode' :
+    \ lightline#mode() == 'VISUAL' ? 'Visual mode' :
+    \ lightline#mode() == 'V-LINE' ? 'Visual Line mode' :
+    \ lightline#mode() == 'V-BLOCK' ? 'Visual Block mode' :
+    \ lightline#mode() == 'REPLACE' ? 'Replace Mode' : lightline#mode()
 endfunction
 function! LLModified()
   if &filetype == "help"
@@ -225,6 +231,9 @@ let g:neomake_error_sign = {
   \ 'text': 'E',
   \ 'texthl': 'ErrorMsg',
   \ }
+let g:neomake_open_list = 2
+nmap <Leader><e>n :lnext<CR>
+" let g:neomake_verbose = 3
 
 " airblade/vim-gitgutter
 let g:gitgutter_sign_column_always = 1
@@ -264,3 +273,5 @@ let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
 let g:UltiSnipsSnippetDirectories=['snips']
+
+

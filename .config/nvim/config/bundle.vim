@@ -6,7 +6,6 @@ call neobundle#begin(expand('/home/booker/.config/nvim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'moll/vim-node'
-NeoBundle 'mxw/vim-jsx'
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf' }
 NeoBundle 'junegunn/fzf.vim'
@@ -33,9 +32,10 @@ NeoBundle 'mattn/gist-vim', {
   \ 'depends': 'mattn/webapi-vim'
   \ }
 
-NeoBundle 'othree/es.next.syntax.vim', {'on_ft': ['javascript', 'javascript.jsx']}
-NeoBundle 'othree/yajs.vim', {'on_ft': ['javascript', 'javascript.jsx']}
-NeoBundle 'gavocanov/vim-js-indent', {'on_ft': ['javascript', 'javascript.jsx']}
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'othree/es.next.syntax.vim'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'gavocanov/vim-js-indent'
 
 NeoBundle 'pearofducks/vim-quack-lightline'
 NeoBundle 'tpope/vim-fugitive'
