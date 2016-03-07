@@ -50,3 +50,5 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 
 export NVM_DIR="/home/booker/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export EDITOR=nvim

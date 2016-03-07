@@ -33,9 +33,6 @@ set noswapfile
 " Show column guide
 set colorcolumn=95
 
-" Do not highlight code longer than column guide
-set synmaxcol=95
-
 " Disable welcome message
 set shortmess=atTiOI
 

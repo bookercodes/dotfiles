@@ -1,3 +1,5 @@
+Xcursor.theme: DMZ-White
+
 URxvt.font:                xft:PragmataPro:size=14
 URxvt.boldFont:            xft:PragmataPro:size=14:bold
 URxvt.italicFont:          xft:PragmataPro:size=14:italic
