@@ -32,6 +32,7 @@ NeoBundle 'mattn/gist-vim', {
   \ 'depends': 'mattn/webapi-vim'
   \ }
 
+NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'othree/es.next.syntax.vim'
 NeoBundle 'othree/yajs.vim'

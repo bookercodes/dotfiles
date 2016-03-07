@@ -41,6 +41,9 @@ set undodir=~/.config/nvim/undodir
 set undolevels=100
 set undofile
 
+" Tell Grep to use ag internally
+set grepprg=ag\ --nogroup\ --nocolor
+
 " Automatically source init.vim
 autocmd! bufwritepost config.vim,bundle.vim source $MYVIMRC
 
@@ -272,3 +275,5 @@ let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
 let g:UltiSnipsSnippetDirectories=['snips']
 
 
+" othree/javascript-libraries-syntax.vim
+let g:used_javascript_libs = 'react'
