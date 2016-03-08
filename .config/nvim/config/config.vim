@@ -1,5 +1,6 @@
 " Syntax
 syntax on
+
 colorscheme base16-gooey
 let base16colorspace=256
 set background=dark
@@ -46,6 +47,9 @@ set grepprg=ag\ --nogroup\ --nocolor
 
 " Automatically source init.vim
 autocmd! bufwritepost config.vim,bundle.vim source $MYVIMRC
+
+" Automatically set Termite config file type to ini
+au BufRead config setfiletype dosini
 
 " Remember cursor position
 if has("autocmd")
@@ -277,3 +281,4 @@ let g:UltiSnipsSnippetDirectories=['snips']
 
 " othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'react'
+
