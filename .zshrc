@@ -23,10 +23,11 @@ alias ll="ls -l"
 alias j="jump"
 alias termiteconf="nvim ~/.config/termite/config"
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias vinit="cd ~/.config/nvim && v ~/.config/nvim/config"
+alias vinit="~/.config/nvim/config"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 alias xres="nvim ~/.Xresources && xrdb ~/.Xresources"
+alias gi="git init"
 alias gs="git status"
 alias gd="git diff"
 alias gdh="git diff HEAD"
@@ -53,3 +54,5 @@ export NVM_DIR="/home/booker/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export EDITOR=nvim
+
+export FZF_DEFAULT_COMMAND='ag -g ""'

@@ -1,6 +1,5 @@
 " Syntax
 syntax on
-
 colorscheme base16-gooey
 let base16colorspace=256
 set background=dark
@@ -12,7 +11,7 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 
-" Case sensitivity for search
+" Case sensitivity
 set ignorecase
 set smartcase
 
@@ -20,21 +19,21 @@ set smartcase
 set number
 set relativenumber
 
-" Open new split panes to right and bottom
+" Open new split panes more naturally
 set splitbelow
 set splitright
 
-" Highlight current line and column
+" Always highlight current line and column
 set cursorline
 set cursorcolumn
 
-" Disable swap file
+" Disable swap files
 set noswapfile
 
-" Show column guide
-set colorcolumn=95
+" Show column guideline @ column #80
+set colorcolumn=80
 
-" Disable welcome message
+" Disable Neovim welcome message
 set shortmess=atTiOI
 
 " Remember undo tree
@@ -42,14 +41,8 @@ set undodir=~/.config/nvim/undodir
 set undolevels=100
 set undofile
 
-" Tell Grep to use ag internally
+" Make Grep commands use Ag internally
 set grepprg=ag\ --nogroup\ --nocolor
-
-" Automatically source init.vim
-autocmd! bufwritepost config.vim,bundle.vim source $MYVIMRC
-
-" Automatically set Termite config file type to ini
-au BufRead config setfiletype dosini
 
 " Remember cursor position
 if has("autocmd")
@@ -68,10 +61,7 @@ au VimResized * :wincmd =
 " Disable automatic comment insertion
 au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Enable spell check for markdown files
-autocmd BufRead,BufNewFile *.md setlocal spell
-
-" Close quick fix window automatically
+" Automatically close quick fix window if it's the last window open
 aug QFClose
   au!
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
@@ -91,6 +81,14 @@ nnoremap ; :
 vnoremap ; :
 nnoremap : ;
 
+" Centre screen after navigating
+nnoremap } }zz
+nnoremap { {zz
+nnoremap ]] ]]zz
+nnoremap [[ [[zz
+nnoremap [] []zz
+nnoremap ][  ][zz
+
 " Recursively reselect indented text
 vnoremap < <gv
 vnoremap > >gv
@@ -102,32 +100,36 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-
-" Convinent key-bindings for switching and closing buffers
-" nnoremap <C-w> :bd<CR>
-nnoremap <Tab> :bn<CR>
-nnoremap <S-Tab> :bp<CR>
+nmap <Leader>p ;set paste<CR>"+p<ESC>;set nopaste<CR>
+nmap <Leader>P ;set paste<CR>"+P<ESC>;set nopaste<CR>
 
 " Convinent key-binding to write file
 nnoremap <Leader>w :w<CR>
 
-" Convinent key-binding to reload init.vim
-map <F5> ;source $MYVIMRC<CR>
-
 " Convinent key-binding to remove search matches highlighting
 map <esc> ;nohl<CR>
-
-" Convinent key-binding to create a new line in normal mode
-nnoremap <CR> o<Esc>
 
 " Disable Ex Mode key-binding
 noremap Q <NOP>
 
-" Quicker scrolling
-nnoremap <C-e> 6<C-e>
-nnoremap <C-y> 6<C-y>
+" Disable vw and viw in favour of v
+nmap vw <NOP>
+nmap viw <NOP>
 
-" Fix trivial ESLint errors
+" Quicker scrolling
+nnoremap <C-e> 8<C-e>
+nnoremap <C-y> 8<C-y>
+
+" Convinent key-binding to search and replace word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+" Convinent key-binding to select just-pasted text
+nmap <Leader>v `[v`]
+
+" Convinent key-binding to fix document indentation
+map <F2> mzgg=G`z
+
+" (Experimental) Convinent key-binding to fix basic ESLint errors
 map <F3> ;EsLintFix<CR>;Neomake<CR>
 
 " ..........................................................
@@ -264,7 +266,7 @@ sunmap b
 sunmap e
 
 " junegunn/fzf
-nnoremap <Leader>o :GitFiles<CR>
+nnoremap <Leader>o :Files<CR>
 
 " dhruvasagar/vim-table-mode
 let g:table_mode_corner="|"
@@ -278,7 +280,16 @@ let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
 let g:UltiSnipsSnippetDirectories=['snips']
 
-
 " othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'react'
 
+" mhinz/vim-startify
+function! s:center_header(lines) abort
+  let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+  let centered_lines = map(copy(a:lines), 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+  return centered_lines
+endfunction
+let g:startify_list_order = [  ['Current Dir: '.getcwd()], 'dir' ]
+let g:startify_enable_special         = 0
+let g:startify_custom_header =
+  \ s:center_header(split(system('echo Welcome to Neovim.\\n\\n\"As a guiding principle, life shrinks and life expands in direct\\n proportion to your willingness to assume risk.\" - Casey Neistat\\n'), '\n'))

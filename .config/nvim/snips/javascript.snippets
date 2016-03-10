@@ -31,7 +31,33 @@ this.setState({
 })
 endsnippet
 
-snippet :
-${1}: ${0}
+snippet const
+const ${1} = ${0}
 endsnippet
 
+
+snippet class
+class ${1} {
+	${0}
+}
+endsnippet
+
+snippet rcomp
+class ${1} extends Component {
+	render() {
+		${0}
+	}
+}
+endsnippet
+
+snippet ed
+export default ${0}
+endsnippet
+
+snippet switch
+switch (${1}) {
+	case ${2}:
+		${0}
+		break;
+}
+endsnippet
