@@ -15,6 +15,9 @@ set shiftwidth=2
 set ignorecase
 set smartcase
 
+" Center search result
+set scrolloff=999
+
 " Line numbers
 set number
 set relativenumber
@@ -84,10 +87,6 @@ nnoremap : ;
 " Centre screen after navigating
 nnoremap } }zz
 nnoremap { {zz
-nnoremap ]] ]]zz
-nnoremap [[ [[zz
-nnoremap [] []zz
-nnoremap ][  ][zz
 
 " Recursively reselect indented text
 vnoremap < <gv
@@ -291,5 +290,14 @@ function! s:center_header(lines) abort
 endfunction
 let g:startify_list_order = [  ['Current Dir: '.getcwd()], 'dir' ]
 let g:startify_enable_special         = 0
+let g:startify_change_to_dir          = 0
+let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 let g:startify_custom_header =
   \ s:center_header(split(system('echo Welcome to Neovim.\\n\\n\"As a guiding principle, life shrinks and life expands in direct\\n proportion to your willingness to assume risk.\" - Casey Neistat\\n'), '\n'))
+hi StartifyHeader ctermfg=5 ctermbg=0 cterm=italic
+
+" mattn/emmet-vim
+imap <C-E> <C-Y>,
+
+" Raimondi/delimitMate
+let delimitMate_expand_cr = 1

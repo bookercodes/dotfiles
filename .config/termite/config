@@ -4,6 +4,7 @@ font             = PragmataPro Regular 12
 clickable_url    = true
 browser          = chromium
 allow_bold       = true
+allow_italic     = true
 visible_bell     = false
 audible_bell     = true
 

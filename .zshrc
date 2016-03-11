@@ -23,7 +23,7 @@ alias ll="ls -l"
 alias j="jump"
 alias termiteconf="nvim ~/.config/termite/config"
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias vinit="~/.config/nvim/config"
+alias vinit="nvim ~/.config/nvim/config"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 alias xres="nvim ~/.Xresources && xrdb ~/.Xresources"
@@ -56,3 +56,14 @@ export NVM_DIR="/home/booker/.nvm"
 export EDITOR=nvim
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+alias fetch2="neofetch \
+  --block_range 1 8 \
+  --line_wrap off \
+  --bold off \
+  --uptime_shorthand on \
+  --gtk_shorthand on \
+  --colors 4 1 8 8 8 7 \
+  "
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+

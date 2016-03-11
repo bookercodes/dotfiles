@@ -42,13 +42,6 @@ class ${1} {
 }
 endsnippet
 
-snippet rcomp
-class ${1} extends Component {
-	render() {
-		${0}
-	}
-}
-endsnippet
 
 snippet ed
 export default ${0}
@@ -60,4 +53,14 @@ switch (${1}) {
 		${0}
 		break;
 }
+endsnippet
+
+snippet component
+import React from 'react'
+
+const ${1} = (${2}) => (
+	${0}
+)
+
+export default ${3}
 endsnippet
