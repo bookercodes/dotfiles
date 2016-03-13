@@ -28,6 +28,10 @@ ask() {
 
 dir=`pwd`
 
+if ask "Install symlink for .npmrc?" Y; then
+  ln -sf ${dir}/.npmrc ${HOME}/.npmrc
+fi
+
 if ask "Install symlink for .config/termite?" Y; then
   ln -sfn ${dir}/.config/termite ${HOME}/.config/termite
 fi

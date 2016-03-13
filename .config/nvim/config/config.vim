@@ -6,6 +6,8 @@ set background=dark
 highlight Error ctermfg=15
 highlight Error ctermbg=black
 
+set encoding=utf8
+
 " Indentation
 set tabstop=2
 set expandtab
@@ -47,10 +49,12 @@ set undofile
 " Make Grep commands use Ag internally
 set grepprg=ag\ --nogroup\ --nocolor
 
+
 " Remember cursor position
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+autocmd BufReadPost *
+   \ if line("'\"") > 0 && line("'\"") <= line("$") |
+   \   exe "normal! g`\"" |
+   \ endif
 
 " Automatically write on focus lost
 au FocusLost,WinLeave * :silent! wa
@@ -105,6 +109,9 @@ nmap <Leader>P ;set paste<CR>"+P<ESC>;set nopaste<CR>
 " Convinent key-binding to write file
 nnoremap <Leader>w :w<CR>
 
+" Select word under cursor
+nnoremap * *N
+
 " Convinent key-binding to remove search matches highlighting
 map <esc> ;nohl<CR>
 
@@ -119,8 +126,8 @@ nmap viw <NOP>
 nnoremap <C-e> 8<C-e>
 nnoremap <C-y> 8<C-y>
 
-" Convinent key-binding to search and replace word under cursor
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+" Experiment
+nmap ! "+
 
 " Convinent key-binding to select just-pasted text
 nmap <Leader>v `[v`]
@@ -301,3 +308,4 @@ imap <C-E> <C-Y>,
 
 " Raimondi/delimitMate
 let delimitMate_expand_cr = 1
+

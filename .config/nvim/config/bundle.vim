@@ -38,6 +38,7 @@ NeoBundle 'othree/es.next.syntax.vim'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'gavocanov/vim-js-indent'
 
+NeoBundle 'ryanoasis/vim-devicons'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'pearofducks/vim-quack-lightline'
 NeoBundle 'tpope/vim-fugitive'
