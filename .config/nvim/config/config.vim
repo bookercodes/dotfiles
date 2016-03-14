@@ -6,8 +6,7 @@ set background=dark
 highlight Error ctermfg=15
 highlight Error ctermbg=black
 
-set encoding=utf8
-set iskeyword-=.
+
 
 " Indentation
 set tabstop=2
@@ -22,22 +21,39 @@ set smartcase
 set scrolloff=999
 
 " Line numbers
-set number
-set relativenumber
+augroup active_relative_number
+  au!
+  au BufEnter * :setlocal number relativenumber
+  au WinEnter * :setlocal number relativenumber
+  au FocusGained * :setlocal number relativenumber
+  au BufLeave * :setlocal norelativenumber
+  au WinLeave * :setlocal norelativenumber
+  au FocusLost * :setlocal norelativenumber
+augroup END
 
 " Open new split panes more naturally
 set splitbelow
 set splitright
 
-" Always highlight current line and column
+" Highlight current line and column
 set cursorline
 set cursorcolumn
+autocmd WinEnter    * set cursorline
+autocmd WinLeave    * set nocursorline
+autocmd InsertEnter * set nocursorline
+autocmd InsertLeave * set cursorline
+autocmd WinEnter    * set cursorcolumn
+autocmd WinLeave    * set nocursorcolumn
+autocmd InsertEnter * set nocursorcolumn
+autocmd InsertLeave * set cursorcolumn
 
 " Disable swap files
 set noswapfile
 
 " Show column guideline @ column #80
 set colorcolumn=80
+autocmd WinEnter    * set cc=80
+autocmd WinLeave    * set cc=
 
 " Disable Neovim welcome message
 set shortmess=atTiOI
@@ -47,9 +63,11 @@ set undodir=~/.config/nvim/undodir
 set undolevels=100
 set undofile
 
-" Make Grep commands use Ag internally
-set grepprg=ag\ --nogroup\ --nocolor
+" Make '.' count as a word boundary
+set iskeyword-=.
 
+" Change cursor shape depending on mode
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " Remember cursor position
 autocmd BufReadPost *
@@ -127,9 +145,6 @@ nmap viw <NOP>
 nnoremap <C-e> 8<C-e>
 nnoremap <C-y> 8<C-y>
 
-" Experiment
-nmap ! "+
-
 " Convinent key-binding to select just-pasted text
 nmap <Leader>v `[v`]
 
@@ -148,66 +163,58 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+" autocmd StdinReadPre * let s:std_in=1
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+  exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
 " mxw/vim-jsx
 let g:jsx_ext_required = 0
 
-" itchyny/lightline
+" vim-airline/vim-airline
 set laststatus=2
 set noshowmode
-let g:lightline = {
-  \ 'colorscheme': 'quack',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'fugitive'],[ 'filename' ] ]
-  \ },
-  \ 'component_function': {
-  \   'fugitive': 'LLFugitive',
-  \   'readonly': 'LLReadonly',
-  \   'modified': 'LLModified',
-  \   'filename': 'LLFilename',
-  \   'mode': 'LLMode'
-  \ } }
-function! LLMode()
-  let fname = expand('%:t')
-  return fname == '__Tagbar__' ? 'Tagbar' :
-    \ fname == 'ControlP' ? 'CtrlP' :
-    \ lightline#mode() == 'NORMAL' ? 'Normal mode' :
-    \ lightline#mode() == 'INSERT' ? 'Insert mode' :
-    \ lightline#mode() == 'VISUAL' ? 'Visual mode' :
-    \ lightline#mode() == 'V-LINE' ? 'Visual Line mode' :
-    \ lightline#mode() == 'V-BLOCK' ? 'Visual Block mode' :
-    \ lightline#mode() == 'REPLACE' ? 'Replace Mode' : lightline#mode()
-endfunction
-function! LLModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
-function! LLReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return "!"
-  else
-    return ""
-  endif
-endfunction
-function! LLFugitive()
-  return exists('*fugitive#head') ? ' ' . fugitive#head() : ''
-endfunction
-function! LLFilename()
-  return ('' != LLReadonly() ? LLReadonly() . ' ' : '') .
-   \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-   \ ('' != LLModified() ? ' ' . LLModified() : '')
-endfunction
-
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_section_z = '%3p%%'
+let g:airline_section_y = ''
+let g:airline_section_b = ''
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'V',
+  \ '' : 'V',
+  \ 's'  : 'S',
+  \ 'S'  : 'S',
+  \ '' : 'S',
+  \ }
 " junegunn/vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -272,8 +279,9 @@ sunmap w
 sunmap b
 sunmap e
 
-" junegunn/fzf
-nnoremap <Leader>o :Files<CR>
+" ctrlpvim/ctrlp.vim
+nnoremap <Leader>o :CtrlPMixed<CR>
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " dhruvasagar/vim-table-mode
 let g:table_mode_corner="|"

@@ -21,4 +21,3 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 antigen theme https://github.com/halfo/lambda-mod-zsh-theme lambda-mod
-
