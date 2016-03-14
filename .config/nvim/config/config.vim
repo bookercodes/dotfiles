@@ -7,6 +7,7 @@ highlight Error ctermfg=15
 highlight Error ctermbg=black
 
 set encoding=utf8
+set iskeyword-=.
 
 " Indentation
 set tabstop=2

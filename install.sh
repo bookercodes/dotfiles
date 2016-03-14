@@ -28,6 +28,11 @@ ask() {
 
 dir=`pwd`
 
+if ask "Install symlink for .zshrc?" Y; then
+  ln -sf ${dir}/.zshrc ${HOME}/.zshrc
+  ln -sf ${dir}/.aliases.sh ${HOME}/.aliases.sh
+fi
+
 if ask "Install symlink for .npmrc?" Y; then
   ln -sf ${dir}/.npmrc ${HOME}/.npmrc
 fi
@@ -46,10 +51,6 @@ fi
 
 if ask "Install symlink for .tmux.conf?" Y; then
   ln -sf ${dir}/.tmux.conf ${HOME}/.tmux.conf
-fi
-
-if ask "Install symlink for .zshrc?" Y; then
-  ln -sf ${dir}/.zshrc ${HOME}/.zshrc
 fi
 
 if ask "Install symlink for .yaourtrc?" Y; then

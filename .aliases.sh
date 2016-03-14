@@ -1,17 +1,4 @@
-alias ya="yaourt --nameonly --pager --color $1"
-alias setclip='xclip -selection c'
-alias getclip='xclip -selection clipboard -o'
-alias v='nvim'
-alias l="ls -lFh"
-alias la="ls -lAFh"
-alias ll="ls -l"
-alias j="jump"
-alias termiteconf="nvim ~/.config/termite/config"
-alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias vinit="nvim ~/.config/nvim/config"
-alias i3conf="nvim ~/.i3/config"
-alias tmuxconf="nvim ~/.tmux.conf"
-alias xres="nvim ~/.Xresources && xrdb ~/.Xresources"
+# Git
 alias gi="git init"
 alias gs="git status"
 alias gd="git diff"
@@ -24,6 +11,8 @@ alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%
 alias glo="git log --oneline"
 alias grhh="git reset --hard HEAD"
 alias gcp="git cherry-pick $1"
+
+# npm
 alias ni="npm install";
 alias nis="npm i -S "
 alias nid="npm i -D "
@@ -33,3 +22,26 @@ alias nrb="npm run build";
 alias nrt="npm run test";
 alias nrc="npm run commit";
 
+# Clipboard
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection clipboard -o'
+
+# Arch
+alias ya="yaourt --nameonly --pager --color $1"
+
+# Files
+alias l="ls -o -hX --group-directories-first"
+alias la="ls -o -AhX --group-directories-first"
+alias j="jump"
+
+# Config
+alias termiteconf="nvim ~/.config/termite/config"
+alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
+alias vinit="nvim ~/.config/nvim/config"
+alias i3conf="nvim ~/.i3/config"
+alias tmuxconf="nvim ~/.tmux.conf"
+alias xres="nvim ~/.Xresources && xrdb ~/.Xresources"
+
+# Vim
+alias v='nvim'
+alias update.="gaa && gcm 'Update dotfiles' && gpo master"
