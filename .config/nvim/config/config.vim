@@ -308,4 +308,3 @@ imap <C-E> <C-Y>,
 
 " Raimondi/delimitMate
 let delimitMate_expand_cr = 1
-
