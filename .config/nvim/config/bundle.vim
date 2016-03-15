@@ -38,6 +38,8 @@ NeoBundle 'othree/yajs.vim'
 NeoBundle 'gavocanov/vim-js-indent'
 
 " NeoBundle 'tmux-plugins/vim-tmux-focus-events'
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'briancollins/vim-jst'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'ryanoasis/vim-devicons'
 NeoBundle 'mhinz/vim-startify'

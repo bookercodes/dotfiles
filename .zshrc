@@ -6,7 +6,6 @@ antigen apply
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle jimhester/per-directory-history
 
 source ~/.aliases.sh
 

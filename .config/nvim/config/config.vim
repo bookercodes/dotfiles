@@ -280,7 +280,7 @@ sunmap b
 sunmap e
 
 " ctrlpvim/ctrlp.vim
-nnoremap <Leader>o :CtrlPMixed<CR>
+nnoremap <Leader>o :CtrlP<CR>
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " dhruvasagar/vim-table-mode
@@ -299,6 +299,7 @@ let g:UltiSnipsSnippetDirectories=['snips']
 let g:used_javascript_libs = 'react'
 
 " mhinz/vim-startify
+autocmd User Startified setlocal buftype=
 function! s:center_header(lines) abort
   let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
   let centered_lines = map(copy(a:lines), 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')

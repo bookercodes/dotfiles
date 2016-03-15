@@ -39,7 +39,7 @@ URxvt.scrollBar:           false
 
 URxvt*fading:              30
 
-URxvt.perl-ext-common:     default,matcher,resize-font,fullscreen
+URxvt.perl-ext-common:     matcher,resize-font,foo
 
 URxvt.keysym.F11:          perl:fullscreen:switch
 
