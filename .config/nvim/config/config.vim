@@ -93,12 +93,6 @@ aug QFClose
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 aug END
 
-" Omnifunc
-augroup omnifuncs
-  autocmd!
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-augroup end
-
 " Leader key
 let mapleader = "\<Space>"
 
@@ -215,9 +209,15 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " ternjs/tern_for_vim
-let g:tern_show_argument_hints = 'on_move'
-let g:tern_show_signature_in_pum = 1
-set completeopt-=preview
+" set completeopt-=preview
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = 0
 
 " terryma/vim-expand-region
 vmap v <Plug>(expand_region_expand)
@@ -313,3 +313,7 @@ imap <C-E> <C-Y>,
 
 " Raimondi/delimitMate
 let delimitMate_expand_cr = 1
+
+" Shougo/deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+

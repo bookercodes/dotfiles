@@ -1,9 +1,9 @@
 Xcursor.theme: DMZ-White
 
-URxvt.font:                xft:PragmataPro:size=14
-URxvt.boldFont:            xft:PragmataPro:size=14:bold
-URxvt.italicFont:          xft:PragmataPro:size=14:italic
-URxvt.boldItalicFont:      xft:PragmataPro:size=14:bold:italic
+URxvt.font:                xft:PragmataPro:pixelsize=24
+URxvt.boldFont:            xft:PragmataPro:pixelsize=24:bold
+URxvt.italicFont:          xft:PragmataPro:pixelsize=24:italic
+URxvt.boldItalicFont:      xft:PragmataPro:pixelsize=24:bold:italic
 URxvt.letterSpace:         -1
 
 URxvt*color0:              #101218
@@ -34,6 +34,7 @@ URxvt*cursorColor:         #E6EFF7
 
 URxvt.internalBorder:      0
 URxvt.externalBorder:      0
+urxvt.borderLess: true
 
 URxvt.scrollBar:           false
 
