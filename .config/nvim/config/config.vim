@@ -102,11 +102,6 @@ augroup end
 " Leader key
 let mapleader = "\<Space>"
 
-" Swap ; and :
-nnoremap ; :
-vnoremap ; :
-nnoremap : ;
-
 " Centre screen after navigating
 nnoremap } }zz
 nnoremap { {zz
@@ -122,8 +117,8 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-nmap <Leader>p ;set paste<CR>"+p<ESC>;set nopaste<CR>
-nmap <Leader>P ;set paste<CR>"+P<ESC>;set nopaste<CR>
+nmap <Leader>p :set paste<CR>"+p<ESC>:set nopaste<CR>
+nmap <Leader>P :set paste<CR>"+P<ESC>:set nopaste<CR>
 
 " Convinent key-binding to write file
 nnoremap <Leader>w :w<CR>
@@ -132,7 +127,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap * *N
 
 " Convinent key-binding to remove search matches highlighting
-map <esc> ;nohl<CR>
+map <esc> :nohl<CR>
 
 " Disable Ex Mode key-binding
 noremap Q <NOP>
@@ -152,13 +147,13 @@ nmap <Leader>v `[v`]
 map <F2> mzgg=G`z
 
 " (Experimental) Convinent key-binding to fix basic ESLint errors
-map <F3> ;EsLintFix<CR>;Neomake<CR>
+map <F3> :EsLintFix<CR>:Neomake<CR>
 
 " ..........................................................
 " ...................................................Plugins
 
 " scrooloose/nerdtree
-nmap <Leader>f ;NERDTreeToggle<Enter>
+nmap <Leader>f :NERDTreeToggle<Enter>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1

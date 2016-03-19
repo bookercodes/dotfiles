@@ -27,7 +27,7 @@ alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
 # Arch
-alias ya="yaourt --nameonly --pager --color $1"
+alias ya="yaourt  --nameonly --pager --color --noconfirm $1"
 
 # Files
 alias l="ls -o -hX --group-directories-first"
@@ -45,3 +45,6 @@ alias xres="nvim ~/.Xresources && xrdb ~/.Xresources"
 # Vim
 alias v='nvim'
 alias update.="gaa && gcm 'Update dotfiles' && gpo master"
+
+# Man
+alias h='tldr'
