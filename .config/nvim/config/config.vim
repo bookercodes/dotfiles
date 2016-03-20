@@ -51,8 +51,7 @@ set noswapfile
 
 " Show column guideline @ column #80
 set colorcolumn=80
-autocmd WinEnter    * set cc=80
-autocmd WinLeave    * set cc=
+set cc=80
 
 " Disable Neovim welcome message
 set shortmess=atTiOI
@@ -152,29 +151,6 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 " autocmd StdinReadPre * let s:std_in=1
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-  exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
 " mxw/vim-jsx
 let g:jsx_ext_required = 0
@@ -188,7 +164,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_z = '%3p%%'
-let g:airline_section_y = 'w'
+let g:airline_section_y = ''
 let g:airline_section_b = ''
 let g:airline_mode_map = {
   \ '__' : '-',
