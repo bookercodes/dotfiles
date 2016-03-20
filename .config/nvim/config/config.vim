@@ -7,7 +7,6 @@ highlight Error ctermfg=15
 highlight Error ctermbg=black
 
 
-
 " Indentation
 set tabstop=2
 set expandtab
@@ -189,7 +188,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_z = '%3p%%'
-let g:airline_section_y = ''
+let g:airline_section_y = 'w'
 let g:airline_section_b = ''
 let g:airline_mode_map = {
   \ '__' : '-',

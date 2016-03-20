@@ -2,3 +2,8 @@ bundle
 undodir
 .netrwhist
 .init.vim-rplugin~
+.dein
+temp
+repos
+merged
+.tern-port
