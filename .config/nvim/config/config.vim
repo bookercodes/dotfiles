@@ -58,7 +58,7 @@ autocmd WinLeave    * set cc=
 set shortmess=atTiOI
 
 " Remember undo tree
-set undodir=~/.config/nvim/undodir
+set undodir=~/.config/nvim/temp/undodir
 set undolevels=100
 set undofile
 
