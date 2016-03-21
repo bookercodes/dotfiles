@@ -37,7 +37,7 @@ alias j="jump"
 # Config
 alias termiteconf="nvim ~/.config/termite/config"
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias vinit="nvim ~/.config/nvim/config"
+alias vinit="nvim ~/.config/nvim/init.vim"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 alias xres="nvim ~/.Xresources && xrdb ~/.Xresources"
