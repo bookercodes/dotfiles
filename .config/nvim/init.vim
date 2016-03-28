@@ -16,21 +16,22 @@ function! s:init_neobundle()
 endfunction
 call s:init_neobundle()
 
-source ~/.config/nvim/config/plugin/all.vim
-source ~/.config/nvim/config/bindings.vim
-
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 filetype plugin indent on
-set number
-set relativenumber
-
 syntax enable
-" Indentation
-set tabstop=2
-set expandtab
-set shiftwidth=2
-
-autocmd FileType help wincmd L
-
 if neobundle#is_installed('vim-gotham')
   colorscheme gotham
 endif
+
+set number
+set relativenumber
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set noswapfile
+set cc=79
+
+autocmd FileType help wincmd L
+
+source ~/.config/nvim/config/plugin/all.vim
+source ~/.config/nvim/config/bindings.vim
