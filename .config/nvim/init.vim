@@ -17,6 +17,7 @@ endfunction
 call s:init_neobundle()
 
 source ~/.config/nvim/config/plugin/all.vim
+source ~/.config/nvim/config/bindings.vim
 
 filetype plugin indent on
 set number
