@@ -13,6 +13,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'roman/golden-ratio'
 " NeoBundle 'moll/vim-node', {'on_ft': 'javascript'}
 NeoBundleLazy 'mxw/vim-jsx', {'on_ft': 'javascript'}
 NeoBundleLazy 'othree/yajs.vim', {'on_ft': 'javascript'}
@@ -26,3 +27,4 @@ NeoBundleLazy 'haya14busa/vim-operator-flashy', {
       \ 'depends': 'vim-operator-user',
       \ 'on_map': '<Plug>'
       \ }
+NeoBundle 'vim-airline/vim-airline'

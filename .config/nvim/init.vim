@@ -30,8 +30,12 @@ set expandtab
 set shiftwidth=2
 set noswapfile
 set cc=79
+set undofile
+set undodir=~/.config/nvim/temp/undodir
 
 autocmd FileType help wincmd L
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 source ~/.config/nvim/config/plugin/all.vim
 source ~/.config/nvim/config/bindings.vim
+
