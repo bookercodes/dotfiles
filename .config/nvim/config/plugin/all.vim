@@ -13,6 +13,12 @@ if neobundle#tap('vimfiler.vim')
   call neobundle#untap()
 endif
 
+if neobundle#tap('deoplete.nvim') && has('nvim') "{{{
+  let g:deoplete#enable_at_startup = 1
+  let neobundle#hooks.on_source = '~/.config/nvim/config/plugin/deoplete.vim'
+  call neobundle#untap()
+endif
+
 if neobundle#is_installed('vim-jsx')
   let g:jsx_ext_required = 0
 endif
@@ -32,6 +38,14 @@ endif
 if neobundle#is_installed('vim-markdown')
   let g:vim_markdown_folding_disabled = 1
 endif
+
+if neobundle#is_installed('ultisnips')
+  let g:UltiSnipsExpandTrigger="<c-k>"
+  let g:UltiSnipsJumpForwardTrigger="<c-k>"
+  let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
+  let g:UltiSnipsSnippetDirectories=['snips']
+endif
+
 
 if neobundle#is_installed('vim-airline')
   set laststatus=2
@@ -59,4 +73,3 @@ if neobundle#is_installed('vim-airline')
         \ '' : 'S',
         \ }
 endif
-

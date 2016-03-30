@@ -32,6 +32,10 @@ NeoBundle 'vim-airline/vim-airline'
 
 NeoBundleLazy 'plasticboy/vim-markdown', {'on_ft': 'markdown'}
 
+NeoBundleLazy 'Shougo/deoplete.nvim', { 'on_i': 1 }
+NeoBundleLazy 'carlitux/deoplete-ternjs', { 'on_ft': 'javascript', 'on_i': 1 }
+NeoBundle 'SirVer/ultisnips'
+
 " NeoBundleLazy 'facebook/vim-flow', {
 "       \ 'on_ft': 'javascript',
 "       \ 'build': {

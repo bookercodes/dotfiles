@@ -32,6 +32,7 @@ set noswapfile
 set cc=79
 set undofile
 set undodir=~/.config/nvim/temp/undodir
+set completeopt-=preview
 
 autocmd FileType help wincmd L
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

@@ -39,5 +39,8 @@ endif
 function! s:apply_unite_win_settings()
   imap <silent><buffer> <C-j> <Plug>(unite_select_next_line)
   imap <silent><buffer> <C-k> <Plug>(unite_select_previous_line)
+  " Attempt to unbind c-l and c-k so TmuxNavigator can use them...
+  " silent! nunmap <buffer> <C-l>
+  " silent! nunmap <buffer> <C-k>
 endfunction
 autocmd FileType unite call s:apply_unite_win_settings()
