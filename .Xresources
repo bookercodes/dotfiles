@@ -34,7 +34,6 @@ URxvt*cursorColor:         #E6EFF7
 
 URxvt.internalBorder:      0
 URxvt.externalBorder:      0
-urxvt.borderLess: true
 
 URxvt.scrollBar:           false
 

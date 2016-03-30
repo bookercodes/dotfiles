@@ -35,6 +35,7 @@ set undodir=~/.config/nvim/temp/undodir
 
 autocmd FileType help wincmd L
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+au FocusGained,BufEnter * :silent! !
 
 source ~/.config/nvim/config/plugin/all.vim
 source ~/.config/nvim/config/bindings.vim

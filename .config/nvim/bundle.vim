@@ -12,9 +12,10 @@ NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'roman/golden-ratio'
-" NeoBundle 'moll/vim-node', {'on_ft': 'javascript'}
+ NeoBundle 'moll/vim-node'
 NeoBundleLazy 'mxw/vim-jsx', {'on_ft': 'javascript'}
 NeoBundleLazy 'othree/yajs.vim', {'on_ft': 'javascript'}
 NeoBundleLazy 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
@@ -28,3 +29,12 @@ NeoBundleLazy 'haya14busa/vim-operator-flashy', {
       \ 'on_map': '<Plug>'
       \ }
 NeoBundle 'vim-airline/vim-airline'
+
+NeoBundleLazy 'plasticboy/vim-markdown', {'on_ft': 'markdown'}
+
+" NeoBundleLazy 'facebook/vim-flow', {
+"       \ 'on_ft': 'javascript',
+"       \ 'build': {
+"       \     'mac': 'npm install -g flow-bin',
+"       \     'unix': 'npm install -g flow-bin'
+"       \ }}

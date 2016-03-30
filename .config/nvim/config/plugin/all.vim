@@ -3,7 +3,7 @@ if neobundle#tap('unite.vim')
   nnoremap <silent> [unite]r :UniteResume -no-start-insert -force-redraw<CR>
   nnoremap <silent> [unite]g :Unite grep:.<cr>
   nnoremap <silent> [unite]f :Unite file_rec/async<CR>
-  nnoremap <silent> [unite]e :VimFiler<cr>
+  nnoremap <silent> [unite]e :VimFiler -find<cr>
   let neobundle#hooks.on_source = '~/.config/nvim/config/plugin/unite.vim'
   call neobundle#untap()
 endif
@@ -29,10 +29,13 @@ if neobundle#is_installed('delimitMate')
   let delimitMate_expand_cr = 1
 endif
 
+if neobundle#is_installed('vim-markdown')
+  let g:vim_markdown_folding_disabled = 1
+endif
+
 if neobundle#is_installed('vim-airline')
   set laststatus=2
   set noshowmode
-  let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline_powerline_fonts = 1
   let g:airline_left_sep=''
