@@ -14,8 +14,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'roman/golden-ratio'
- NeoBundle 'moll/vim-node'
+NeoBundle 'moll/vim-node'
 NeoBundleLazy 'mxw/vim-jsx', {'on_ft': 'javascript'}
 NeoBundleLazy 'othree/yajs.vim', {'on_ft': 'javascript'}
 NeoBundleLazy 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
@@ -35,10 +34,15 @@ NeoBundleLazy 'plasticboy/vim-markdown', {'on_ft': 'markdown'}
 NeoBundleLazy 'Shougo/deoplete.nvim', { 'on_i': 1 }
 NeoBundleLazy 'carlitux/deoplete-ternjs', { 'on_ft': 'javascript', 'on_i': 1 }
 NeoBundle 'SirVer/ultisnips'
+NeoBundle 'scrooloose/syntastic'
+" NeoBundleLazy 'benekastah/neomake', {'on_cmd': ['Neomake']}
+" NeoBundle 'benekastah/neomake'
 
-" NeoBundleLazy 'facebook/vim-flow', {
-"       \ 'on_ft': 'javascript',
-"       \ 'build': {
-"       \     'mac': 'npm install -g flow-bin',
-"       \     'unix': 'npm install -g flow-bin'
-"       \ }}
+NeoBundleLazy 'facebook/vim-flow', {
+      \ 'on_ft': 'javascript',
+      \ 'build': {
+      \     'mac': 'npm install -g flow-bin',
+      \     'unix': 'npm install -g flow-bin'
+      \ }}
+
+NeoBundle 'benmills/vimux'

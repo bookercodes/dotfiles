@@ -37,6 +37,7 @@ set completeopt-=preview
 autocmd FileType help wincmd L
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 au FocusGained,BufEnter * :silent! !
+au VimResized * :wincmd =
 
 source ~/.config/nvim/config/plugin/all.vim
 source ~/.config/nvim/config/bindings.vim

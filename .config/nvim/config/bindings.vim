@@ -1,6 +1,6 @@
 let mapleader = "\<Space>"
 
-noremap Q <NOP>
+noremap Q q
 nnoremap gQ <Nop>
 
 noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
@@ -10,6 +10,7 @@ nnoremap * *N
 nnoremap J mzJ`z
 nnoremap <Leader>w :w<CR>
 nnoremap coh :nohl<CR>
+nnoremap n nzz
 
 nmap gp `[v`]
 nmap s [Window]
