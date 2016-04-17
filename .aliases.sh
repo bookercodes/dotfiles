@@ -17,6 +17,7 @@ alias ni="npm install";
 alias nis="npm i -S "
 alias nid="npm i -D "
 alias nig="npm i -g "
+alias nr="npm run $1";
 alias nrs="npm run start";
 alias nrb="npm run build";
 alias nrt="npm run test";
@@ -40,7 +41,7 @@ alias rm='trash'
 # Config
 alias termiteconf="nvim ~/.config/termite/config"
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias vinit="nvim ~/.config/nvim/init.vim"
+alias vinit="cd ~/Code/dotfiles/.config/nvim && v init.vim"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 alias xres="nvim ~/.Xresources && xrdb ~/.Xresources"

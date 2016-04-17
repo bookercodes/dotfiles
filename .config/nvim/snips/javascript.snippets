@@ -6,12 +6,37 @@ snippet log
 console.log(${0})
 endsnippet
 
+snippet fun
+function (${1}) {
+	${0}
+}
+endsnippet
+
+snippet if
+if (${1}) {
+	${0}
+}
+endsnippet
+
 snippet ed
 export default ${0}
 endsnippet
 
 snippet test
 test(${1}t => {
-  ${0}
+	${0}
 })
+endsnippet
+
+
+snippet aget
+app.get('${1}', function(req, res) {
+	${0}
+})
+endsnippet
+
+snippet class
+class ${1} {
+	${0}
+}
 endsnippet
