@@ -25,6 +25,10 @@ NeoBundleLazy 'othree/es.next.syntax.vim', {'on_ft': 'javascript'}
 NeoBundleLazy 'gavocanov/vim-js-indent', {'on_ft': 'javascript'}
 NeoBundleLazy 'carlitux/deoplete-ternjs', { 'on_ft': 'javascript', 'on_i': 1 }
 
+" Markdown
+NeoBundleLazy 'plasticboy/vim-markdown', {'on_ft': 'markdown'}
+NeoBundleLazy 'dhruvasagar/vim-table-mode', {'on_ft': 'markdown'}
+NeoBundleLazy 'junegunn/goyo.vim', {'on_cmd': 'Goyo'}
+
 " Syntax
 NeoBundleLazy 'tmux-plugins/vim-tmux', {'on_ft': 'tmux'}
-NeoBundleLazy 'plasticboy/vim-markdown', {'on_ft': 'markdown'}

@@ -19,6 +19,10 @@ if neobundle#tap('deoplete.nvim') && has('nvim') "{{{
   call neobundle#untap()
 endif
 
+if neobundle#is_installed('vim-table-mode')
+  let g:table_mode_corner="|"
+endif
+
 if neobundle#is_installed('vim-jsx')
   let g:jsx_ext_required = 0
 endif

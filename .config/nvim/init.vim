@@ -16,17 +16,15 @@ function! s:install_neobundle()
 endfunction
 call s:install_neobundle()
 
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 filetype plugin indent on
-
+let base16colorspace=256
 syntax enable
 colorscheme base16-gooey
+
 set background=dark
-let base16colorspace=256
-
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 set number
-set clipboard^=unnamed
+set clipboard=unnamed
 set relativenumber
 set tabstop=2
 set smartcase

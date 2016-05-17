@@ -1,6 +1,6 @@
 [options]
-scrollback_lines = 10000
-font             = PragmataPro Regular 13
+scrollback_lines = 10001
+font             = PragmataPro Regular 15
 clickable_url    = true
 browser          = chromium
 allow_bold       = true
