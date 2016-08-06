@@ -29,50 +29,50 @@ ask() {
 dir=`pwd`
 
 if ask "Install symlink for .zshrc?" Y; then
-  ln -sf ${dir}/.zshrc ${HOME}/.zshrc
-  ln -sf ${dir}/.aliases.sh ${HOME}/.aliases.sh
+  ln -sf ${dir}/.zshrc ${HOME}/
+  ln -sf ${dir}/.aliases.sh ${HOME}/
 fi
 
 if ask "Install symlink for .npmrc?" Y; then
-  ln -sf ${dir}/.npmrc ${HOME}/.npmrc
+  ln -sf ${dir}/.npmrc ${HOME}/
 fi
 
 if ask "Install symlink for .config/termite?" Y; then
-  ln -sfn ${dir}/.config/termite ${HOME}/.config/termite
+  ln -sfn ${dir}/.config/termite ${HOME}/.config/
 fi
 
 if ask "Install symlink for .config/nvim?" Y; then
-  ln -sfn ${dir}/.config/nvim ${HOME}/.config/nvim
+  ln -sfn ${dir}/.config/nvim ${HOME}/.config/
 fi
 
 if ask "Install symlink for .config/base16-shell?" Y; then
-  ln -sfn ${dir}/.config/base16-shell ${HOME}/.config/base16-shell
+  ln -sfn ${dir}/.config/base16-shell ${HOME}/.config/
 fi
 
 if ask "Install symlink for .tmux.conf?" Y; then
-  ln -sf ${dir}/.tmux.conf ${HOME}/.tmux.conf
+  ln -sf ${dir}/.tmux.conf ${HOME}/
 fi
 
 if ask "Install symlink for .yaourtrc?" Y; then
-  ln -sf ${dir}/.yaourtrc ${HOME}/.yaourtrc
+  ln -sf ${dir}/.yaourtrc ${HOME}/
 fi
 
 if ask "Install symlink for .Xresources?" Y; then
-  ln -sf ${dir}/.Xresources ${HOME}/.Xresources
+  ln -sf ${dir}/.Xresources ${HOME}/
 fi
 
 if ask "Install symlink for .xinitrc?" Y; then
-  ln -sf ${dir}/.xinitrc ${HOME}/.xinitrc
+  ln -sf ${dir}/.xinitrc ${HOME}/
 fi
 
 if ask "Install symlink for .i3blocks.conf?" Y; then
-  ln -sf ${dir}/.i3blocks.conf ${HOME}/.i3blocks.conf
+  ln -sf ${dir}/.i3blocks.conf ${HOME}/
 fi
 
 if ask "Install symlink for .scripts?" Y; then
-  ln -sfn ${dir}/.scripts ${HOME}/.scripts
+  ln -sfn ${dir}/.scripts ${HOME}/
 fi
 
 if ask "Install symlink for i3?" Y; then
-  ln -sfn ${dir}/.config/i3 ${HOME}/.config/i3
+  ln -sfn ${dir}/.config/i3 ${HOME}/.config/
 fi
