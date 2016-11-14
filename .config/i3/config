@@ -127,7 +127,7 @@
   for_window [class="Seahorse"] floating enable
   for_window [class="Pavucontrol"] floating enable
 
-# Widow Colours
+# Window Colours
 #                         border  background text    indicator
   client.focused          $base01 $base01    $base07 $base0F
   client.focused_inactive $base02 $base02    $base03 $base0F
