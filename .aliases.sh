@@ -27,27 +27,9 @@ alias nrc="npm run commit";
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
-# Arch
-alias ya="yaourt  --nameonly --pager --color --noconfirm $1"
-
 # Files
 alias l="ls -o -hX --group-directories-first"
 alias la="ls -o -AhX --group-directories-first"
 alias j="jump"
 alias v='nvim'
-
-alias rm='trash'
-
-# Config
-alias termiteconf="nvim ~/.config/termite/config"
-alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias vinit="cd ~/Code/dotfiles/.config/nvim && v init.vim"
-alias i3conf="nvim ~/.i3/config"
-alias tmuxconf="nvim ~/.tmux.conf"
-alias xres="nvim ~/.Xresources && xrdb ~/.Xresources"
-
-alias update.="gaa && gcm 'Update dotfiles' && gpo master"
-
-# Man
-alias h='tldr'
-
+alias vim='nvim'
